@@ -75,6 +75,14 @@ To see all the layers check out the [full render](keymap-drawer/all_layers/all_l
 - **ZMK Studio:** Supported on Bluetooth and the standard no-screen dongle builds for quick keymap adjustments. Prospector screen builds disable it to preserve RAM.
 
 
+## Hardware Variants
+
+The default firmware assumes the PCBs from the [280Zo build guide](https://github.com/280Zo/charybdis-wireless-mini-3x6-build-guide) (`olidacombe/Elite-C-holder@nicenano` + `victorlucachi/charybdis-pmw3610-breakout@nicenano`). If you're using different hardware, additional setup docs are available in the repo root:
+
+- **[TRACKBALL_PMW3610.md](TRACKBALL_PMW3610.md)** — wiring guide for `Bastardkb Elite-C Holder 2.1 stock` + nice!nano + chinese `PMW3610-Module` (32mm round, AliExpress). Documents the 3-jumper workaround and the required `pinctrl` change.
+- **[TRACKBALL_MOD.md](TRACKBALL_MOD.md)** — historical guide for swapping the sensor to `PMW3360` (driver, jumper, build steps). Mostly obsolete now that the PMW3610 modules are widely available, but kept for reference.
+
+
 ## Flash the Firmware
 
 Download your choice of firmware from the Releases page. Choose a combination of format (Bluetooth/Dongle) and layout (QWERTY, etc.), then follow the steps below to flash it to your keyboard

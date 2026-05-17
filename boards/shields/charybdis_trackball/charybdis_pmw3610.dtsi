@@ -1,17 +1,17 @@
 &pinctrl {
     spi0_default: spi0_default {
         group1 {
-            psels = <NRF_PSEL(SPIM_SCK, 0, 8)>,
-                <NRF_PSEL(SPIM_MOSI, 0, 17)>,
-                <NRF_PSEL(SPIM_MISO, 0, 17)>;
+            psels = <NRF_PSEL(SPIM_SCK, 1, 13)>,    /* D15 silk = P1.13 (header SCLK) */
+                <NRF_PSEL(SPIM_MOSI, 0, 10)>,        /* D16 silk = P0.10 (header MOSI = sensor SDIO) */
+                <NRF_PSEL(SPIM_MISO, 0, 10)>;        /* same pin as MOSI - PMW3610 is 3-wire SPI */
         };
     };
 
     spi0_sleep: spi0_sleep {
         group1 {
-            psels = <NRF_PSEL(SPIM_SCK, 0, 8)>,
-                <NRF_PSEL(SPIM_MOSI, 0, 17)>,
-                <NRF_PSEL(SPIM_MISO, 0, 17)>;
+            psels = <NRF_PSEL(SPIM_SCK, 1, 13)>,
+                <NRF_PSEL(SPIM_MOSI, 0, 10)>,
+                <NRF_PSEL(SPIM_MISO, 0, 10)>;
             low-power-enable;
         };
     };
