@@ -1,7 +1,7 @@
 if SHIELD_CHARYBDIS_DONGLE
 
 config ZMK_KEYBOARD_NAME
-	default "Charybdis"
+	default "chary dongle"
 
 config ZMK_SPLIT_ROLE_CENTRAL
 	default y
