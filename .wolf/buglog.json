@@ -1,0 +1,308 @@
+{
+  "version": 1,
+  "bugs": [
+    {
+      "id": "bug-001",
+      "timestamp": "2026-05-07T17:35:00Z",
+      "error_message": "Background bash 'cd local-build && docker-compose run --rm builder | tail -200' returned exit 0 falsely; docker not installed in this shell",
+      "file": "—",
+      "root_cause": "Docker / docker-compose não estão no PATH deste ambiente (WSL2, shell Nushell via Linuxbrew). O pipe ` | tail -200` mascarou o exit code do docker-compose.",
+      "fix": "Para esta sessão Claude: nunca usar pipe direto após comando que pode falhar — usar `cmd 2>&1; echo exit=$?` ou `set -o pipefail`. Para o usuário: rodar o build localmente com `! cd local-build && docker-compose run --rm builder` (prefixo `!` no prompt do Claude Code).",
+      "tags": [
+        "docker",
+        "build",
+        "shell",
+        "exit-code",
+        "pipefail",
+        "wsl"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-07T17:35:00Z"
+    },
+    {
+      "id": "bug-007",
+      "timestamp": "2026-05-08T16:00:00Z",
+      "error_message": "Half do split nunca é vista pelo dongle (sem split_central_device_found em log de scan extenso). nRF Connect também não vê a half.",
+      "file": "boards/shields/charybdis_right_dongle/charybdis_right_dongle.conf",
+      "root_cause": "Falta linha `CONFIG_ZMK_SPLIT_ROLE_CENTRAL=n` no .conf da half direita. ZMK upstream defaulta pra central quando não setado, então a half scaneia ao invés de advertise — fica invisível pro mundo BLE. left_dongle.conf tem essa linha, right_dongle.conf não tinha (bug original do 280Zo repo).",
+      "fix": "Adicionada linha `CONFIG_ZMK_SPLIT_ROLE_CENTRAL=n` no .conf. Verificado funcional em placa de teste — half passou a aparecer no nRF Connect e a parear com dongle.",
+      "tags": [
+        "zmk",
+        "split",
+        "ble",
+        "kconfig",
+        "central-vs-peripheral"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-08T16:00:00Z"
+    },
+    {
+      "id": "bug-008",
+      "timestamp": "2026-05-08T11:00:00Z",
+      "error_message": "Half soft-bricks após flash do firmware com PMW3610 driver ativo. Single-tap reset monta drive NICENANO automaticamente (auto-DFU do Adafruit bootloader detectando boot loop).",
+      "file": "boards/shields/charybdis_right_dongle/charybdis_right_dongle.conf",
+      "root_cause": "Driver `CONFIG_PMW3610_ALT=y` (do `280Zo/zmk-pmw3610-driver`) panica em loop quando tenta init e o sensor não responde. Hardware do usuário tem PMW3360 (não 3610) com CS solto (Bastardkb 2.1 stock holder), então comunicação SPI nunca completa, driver retry forever, watchdog reset.",
+      "fix": "Para diagnostic: setar `CONFIG_PMW3610_ALT=n` E adicionar override em overlay: `&trackball { status = \"disabled\"; }; &trackball_split { status = \"disabled\"; };`. Sem o segundo override, linker falha com `undefined reference to __device_dts_ord_NNN`. Para fix definitivo: aplicar TRACKBALL_MOD.md (jumper wire CS + trocar pra george-norton/zmk-driver-pmw3360).",
+      "tags": [
+        "zmk",
+        "pmw3610",
+        "pmw3360",
+        "spi",
+        "watchdog",
+        "soft-brick",
+        "device-tree",
+        "linker"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-08T11:00:00Z"
+    },
+    {
+      "id": "bug-009",
+      "timestamp": "2026-05-08T17:00:00Z",
+      "error_message": "Build error: BUILD_ASSERT(DEVICE_NAME_LEN < CONFIG_BT_DEVICE_NAME_MAX) em zephyr/subsys/bluetooth/host/hci_core.c:4440",
+      "file": "boards/shields/charybdis_common/Kconfig.dongle.defconfig",
+      "root_cause": "ZMK overrides Zephyr's default `BT_DEVICE_NAME_MAX` para 16 (`zmk/app/Kconfig:247`). Assert é estrito `<`, então max efetivo é 15 chars. Nome `charybdis dongle` tem 16 chars, falha o assert.",
+      "fix": "Encurtar nome BLE pra <= 15 chars. Soluções: 'charybdis' (9), 'charybdis dgl' (13), 'chary dongle' (12). Não recomendo aumentar BT_DEVICE_NAME_MAX porque ZMK comenta que é constraint de advertising data legacy (31 bytes total).",
+      "tags": [
+        "zmk",
+        "ble",
+        "kconfig",
+        "build-error",
+        "static-assert",
+        "advertising"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-08T17:00:00Z"
+    },
+    {
+      "id": "bug-010",
+      "timestamp": "2026-05-08T18:30:00Z",
+      "error_message": "Placa específica (uma das três que o usuário tem) mostra BLE advertising intermitente com BT_DEVICE_NAME corrompido (caracteres aleatórios). USB CDC não enumera. Mesmo firmware funciona perfeitamente em outra placa do mesmo modelo.",
+      "file": "—",
+      "root_cause": "ESD damage no nRF52840 durante soldagem (ferro sem aterramento, manuseio sem pulseira ESD, etc). Subsystems do chip parcialmente danificados — bootloader DFU ainda funciona mas radio BLE e USB stack ZMK não inicializam corretamente. Comum em montagens DIY.",
+      "fix": "Substituir o módulo nice!nano da placa danificada. Holder, fios, sensor, matrix continuam OK. Para próximas montagens: pulseira ESD aterrada, ferro com temperatura controlada (~350°C max 30s/pino), não forçar stress mecânico.",
+      "tags": [
+        "hardware",
+        "esd",
+        "soldering",
+        "nrf52840",
+        "diy"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-08T18:30:00Z"
+    },
+    {
+      "id": "bug-006",
+      "timestamp": "2026-05-17T01:02:34.207Z",
+      "error_message": "Incorrect value in code",
+      "file": "local-build/build_setup.sh",
+      "root_cause": "Had \"true\"",
+      "fix": "Changed to \"false\"",
+      "tags": [
+        "auto-detected",
+        "wrong-value",
+        "sh"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-17T01:02:34.207Z"
+    },
+    {
+      "id": "bug-007",
+      "timestamp": "2026-05-17T01:02:37.950Z",
+      "error_message": "Significant refactor of ",
+      "file": "boards/shields/charybdis_dongle/charybdis_dongle.conf",
+      "root_cause": "8 lines replaced/restructured",
+      "fix": "Rewrote 12→3 lines (8 removed)",
+      "tags": [
+        "auto-detected",
+        "refactor",
+        "conf"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-17T01:02:37.950Z"
+    },
+    {
+      "id": "bug-008",
+      "timestamp": "2026-05-17T01:02:54.866Z",
+      "error_message": "Significant refactor of ",
+      "file": "build.yaml",
+      "root_cause": "3 lines replaced/restructured",
+      "fix": "Rewrote 4→5 lines (3 removed) | Also: - shield: charybdis_left_dongle; board: nice_nano//zmk",
+      "tags": [
+        "auto-detected",
+        "refactor",
+        "yaml"
+      ],
+      "related_bugs": [],
+      "occurrences": 2,
+      "last_seen": "2026-05-17T01:02:57.674Z"
+    },
+    {
+      "id": "bug-009",
+      "timestamp": "2026-05-17T01:10:00.000Z",
+      "error_message": "Dongle conectado via USB trava ZMK Studio (browser fecha) e Tera Term após poucos segundos",
+      "file": "boards/shields/charybdis_dongle/charybdis_dongle.conf",
+      "root_cause": "ENABLE_USB_LOGGING=true em build_setup.sh aplica o snippet zmk-usb-logging que (1) DESATIVA automaticamente o snippet studio-rpc-usb-uart, então ZMK Studio abre a porta serial esperando RPC binário mas recebe texto de log → parser entra em loop e trava UI thread do browser; (2) com BT_LOG_LEVEL_DBG=y + LOG_BUFFER_SIZE=16384 + LOG_DEFAULT_LEVEL=1, o boot do dongle despeja burst gigante de logs do stack BT que Tera Term (modo VT) tenta parsear/colorizar e congela.",
+      "fix": "ENABLE_USB_LOGGING=\"false\" em local-build/build_setup.sh + remoção das 3 linhas TEMP de log (CONFIG_LOG_DEFAULT_LEVEL=1, CONFIG_BT_LOG_LEVEL_DBG=y, CONFIG_LOG_BUFFER_SIZE=16384) em charybdis_dongle.conf. Rebuild só do dongle (1m47s). Studio e Tera Term voltam a funcionar normalmente. Pra debug de logs sem causar travamento: usar `tio /dev/ttyACM0 -b 115200` ou `cat /dev/ttyACM0` (raw terminal, não interpretam controle).",
+      "tags": [
+        "zmk",
+        "usb-logging",
+        "studio",
+        "tera-term",
+        "rpc",
+        "snippet-conflict",
+        "browser-crash"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-17T01:10:00.000Z"
+    },
+    {
+      "id": "bug-010",
+      "timestamp": "2026-05-17T14:59:31.047Z",
+      "error_message": "Significant refactor of ",
+      "file": "boards/shields/charybdis_right_dongle/charybdis_right_dongle.overlay",
+      "root_cause": "5 lines replaced/restructured",
+      "fix": "Rewrote 10→9 lines (5 removed)",
+      "tags": [
+        "auto-detected",
+        "refactor",
+        "overlay"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-17T14:59:31.047Z"
+    },
+    {
+      "id": "bug-011",
+      "timestamp": "2026-05-17T14:59:52.304Z",
+      "error_message": "Significant refactor of ",
+      "file": "build.yaml",
+      "root_cause": "3 lines replaced/restructured",
+      "fix": "Rewrote 4→5 lines (3 removed) | Also: - shield: charybdis_left_dongle; - shield: charybdis_dongle",
+      "tags": [
+        "auto-detected",
+        "refactor",
+        "yaml"
+      ],
+      "related_bugs": [],
+      "occurrences": 2,
+      "last_seen": "2026-05-17T14:59:55.457Z"
+    },
+    {
+      "id": "bug-012",
+      "timestamp": "2026-05-17T16:10:29.189Z",
+      "error_message": "Incorrect value in code",
+      "file": "local-build/build_setup.sh",
+      "root_cause": "Had \"false\"",
+      "fix": "Changed to \"true\"",
+      "tags": [
+        "auto-detected",
+        "wrong-value",
+        "sh"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-17T16:10:29.189Z"
+    },
+    {
+      "id": "bug-013",
+      "timestamp": "2026-05-17T16:09:56.743Z",
+      "error_message": "Significant refactor of ",
+      "file": "build.yaml",
+      "root_cause": "3 lines replaced/restructured",
+      "fix": "Rewrote 4→5 lines (3 removed) | Also: - shield: charybdis_left_dongle; - shield: charybdis_dongle",
+      "tags": [
+        "auto-detected",
+        "refactor",
+        "yaml"
+      ],
+      "related_bugs": [],
+      "occurrences": 2,
+      "last_seen": "2026-05-17T16:09:59.906Z"
+    },
+    {
+      "id": "bug-014",
+      "timestamp": "2026-05-17T16:20:35.357Z",
+      "error_message": "Significant refactor of ",
+      "file": "boards/shields/charybdis_trackball/charybdis_pmw3610.dtsi",
+      "root_cause": "6 lines replaced/restructured",
+      "fix": "Rewrote 18→18 lines (6 removed)",
+      "tags": [
+        "auto-detected",
+        "refactor",
+        "dtsi"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-17T16:20:35.357Z"
+    },
+    {
+      "id": "bug-015",
+      "timestamp": "2026-05-17T16:22:48.358Z",
+      "error_message": "Significant refactor of ",
+      "file": "build.yaml",
+      "root_cause": "3 lines replaced/restructured",
+      "fix": "Rewrote 4→5 lines (3 removed) | Also: - shield: charybdis_left_dongle; - shield: charybdis_dongle",
+      "tags": [
+        "auto-detected",
+        "refactor",
+        "yaml"
+      ],
+      "related_bugs": [],
+      "occurrences": 2,
+      "last_seen": "2026-05-17T16:22:51.532Z"
+    },
+    {
+      "id": "bug-016",
+      "timestamp": "2026-05-17T16:34:48.566Z",
+      "error_message": "Significant refactor of ",
+      "file": "boards/shields/charybdis_right_dongle/charybdis_right_dongle.conf",
+      "root_cause": "2 lines replaced/restructured",
+      "fix": "Rewrote 4→3 lines (2 removed)",
+      "tags": [
+        "auto-detected",
+        "refactor",
+        "conf"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-17T16:34:48.566Z"
+    },
+    {
+      "id": "bug-017",
+      "timestamp": "2026-05-17T16:34:50.826Z",
+      "error_message": "Incorrect value in code",
+      "file": "local-build/build_setup.sh",
+      "root_cause": "Had \"true\"",
+      "fix": "Changed to \"false\"",
+      "tags": [
+        "auto-detected",
+        "wrong-value",
+        "sh"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-17T16:34:50.826Z"
+    },
+    {
+      "id": "bug-011",
+      "timestamp": "2026-05-17T16:00:00.000Z",
+      "error_message": "Half right pareia com dongle, matrix funciona, mas trackball não move o cursor. ZERO logs do driver PMW3610 no boot via USB CDC, mesmo com CONFIG_PMW3610_ALT_LOG_LEVEL_DBG=y, CONFIG_PMW3610_ALT=y, status=okay no overlay, e driver compilado (visto no build log).",
+      "file": "boards/shields/charybdis_trackball/charybdis_pmw3610.dtsi",
+      "root_cause": "Edit anterior do pinctrl (mudando SCK de P0.08→P1.13 e MOSI/MISO de P0.17→P0.10 pra bater com header SPI da Bastardkb Elite-C Holder 2.1 stock) foi REVERTIDO entre sessões — provavelmente por hook do OpenWolf que não conheço, ou edit não foi flushed antes de iniciar build longo. Confirmado via Read+grep: arquivo no disco tinha pinos ANTIGOS (P0.08/P0.17) mesmo após Edit reportar sucesso. SPI mandava bits em pinos não conectados → product_id read retornava 0xFF lixo → init aborta silencioso (driver não atinge LOG_INF \"PMW3610 async init step\" nem LOG_ERR \"Incorrect product id\" — fica preso antes em algum check intermediário).",
+      "fix": "Re-aplicar Edit do pinctrl. Confirmar IMEDIATAMENTE via `grep SPIM_SCK charybdis_pmw3610.dtsi` que os pinos corretos estão no disco. Rebuild só right_dongle (2m26s). Após reflash, logs aparecem corretamente: `[pmw3610_set_performance] ZMK ACTIVE, sensor FORCE AWAKE` + stream contínuo de `pmw3610_report_data: x/y: N/N`. **Aprendizado:** sempre re-grep o dtsi entre Edit e Build, especialmente quando edit já foi aplicado uma vez antes mas comportamento sugere que não pegou.",
+      "tags": ["zmk", "pmw3610", "spi", "pinctrl", "device-tree", "silent-init-failure", "dtsi", "hook-revert"],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-17T16:30:00.000Z"
+    }
+  ]
+}
