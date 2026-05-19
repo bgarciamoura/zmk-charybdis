@@ -217,6 +217,20 @@ Quando o app crasha múltiplas vezes em sequência (watchdog reset rápido), o b
 
 **Pra ler logs sem travar terminal:** usar `tio /dev/ttyACM0 -b 115200` ou `cat /dev/ttyACM0` (raw, não interpretam VT100/ANSI).
 
+### Solda fria em diodos da matrix — sintoma "doubling" + falso negativo do multímetro (2026-05-17)
+
+**Sintoma:** uma única tecla emite dois caracteres no host. Sempre o mesmo par e sempre nas mesmas colunas (ex: pressionar U **ou** I dispara "iu"; J **ou** K dispara "kj"). Quando o par calha em positions de combo, o output muda — ex: M+vírgula = positions 31+32 = combo_app_windows = `LA(GRAVE)` = backtick `` ` ``.
+
+**Causa:** solda fria num ou mais diodos da matrix (cols envolvidas). O contato intermitente de alta impedância permite que o GPIO scan da kscan leia "high" pra mais de uma coluna quando a row strobea, porque a perna do diodo encosta levemente em algo (pad vizinho, perna de outro diodo, trilha) sem soldagem efetiva.
+
+**Pista decisiva:** *passar o dedo sobre os diodos da região faz o sintoma sumir temporariamente* — a pressão mínima do dedo reassenta a perna no pad.
+
+**Por que multímetro em continuidade dá falso negativo:** modo continuidade injeta corrente alta (mA); a junta fria é capaz de conduzir µA suficientes pro ADC/GPIO read mas falha sob carga maior. Continuidade entre os pads do MCU não acusa nada. **Teste melhor:** continuidade direto entre cátodos dos diodos suspeitos, ou inspeção visual com lupa procurando solda fosca/côncava sem menisco brilhante.
+
+**Por que ZMK Studio não corrige:** Studio edita binding numa `(row,col)` lógica. O doubling acontece na camada **kscan**, antes do keymap rodar. A kscan reporta dois eventos `(row,col)` distintos pra um único press físico, e o Studio não tem acesso a essa camada.
+
+**Fix:** reflow dos diodos suspeitos (340-360°C, ~1-2s no pino+pad, flux fresco se a solda parecer ressecada). Se voltar após reflow → pad lifted ou diodo internamente fraturado → trocar o componente.
+
 ### Hardware ESD damage — sintomas (2026-05-08)
 
 Em uma das placas montadas pelo usuário, o nRF52840 mostrou comportamento errático após soldagem:
@@ -253,3 +267,28 @@ Em uma das placas montadas pelo usuário, o nRF52840 mostrou comportamento errá
 ## Decision Log
 
 <!-- Significant technical decisions with rationale. Why X was chosen over Y. -->
+
+### Layer order canônico (verificado 2026-05-17)
+
+`config/keymaps/*.keymap` definem **8 layers**, nesta ordem:
+
+| Idx | Nome     |
+| --- | -------- |
+| 0   | BASE     |
+| 1   | NUM      |
+| 2   | NAV      |
+| 3   | SYM      |
+| 4   | GAME     |
+| 5   | EXTRAS   |
+| 6   | SLOW     |
+| 7   | SCROLL   |
+
+**Não existe layer MOUSE** — o CLAUDE.md original listava "MOUSE" entre EXTRAS e SLOW, mas estava incorreto. Corrigido em 2026-05-17.
+
+Índices referenciados por:
+- `config/trackball/charybdis_pointer.dtsi` — usa SLOW (6) e SCROLL (7) pra overrides de input processor
+- Combos em `config/keymap_features/combos.dtsi` — campo `layers`
+
+**Não reordene** sem atualizar todos esses arquivos.
+
+Referência completa de edição: `KEYMAP_EDITING.md` na raiz.

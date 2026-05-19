@@ -159,3 +159,48 @@
 | 13:34 | Edited local-build/build_setup.sh | "true" → "false" | ~28 |
 | 13:37 | Session end: 21 writes across 8 files (build_setup.sh, charybdis_dongle.conf, build.yaml, TRACKBALL_PMW3610.md, README.md) | 6 reads | ~13204 tok |
 | 13:43 | Session end: 21 writes across 8 files (build_setup.sh, charybdis_dongle.conf, build.yaml, TRACKBALL_PMW3610.md, README.md) | 6 reads | ~13204 tok |
+| 14:01 | Session end: 21 writes across 8 files (build_setup.sh, charybdis_dongle.conf, build.yaml, TRACKBALL_PMW3610.md, README.md) | 6 reads | ~13204 tok |
+
+## Session: 2026-05-17 14:01
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+| 14:01 | exibe BASE layer do qwerty.keymap | config/keymaps/qwerty.keymap | ok | ~1.8k |
+| 14:35 | log bug-018 (solda fria diodos cols 3/4 direita) + cerebrum learning | .wolf/buglog.json .wolf/cerebrum.md | ok | ~1.2k |
+
+## Session: 2026-05-17 14:36
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+| 14:43 | Created KEYMAP_EDITING.md | — | ~2505 |
+| 14:44 | Edited CLAUDE.md | inline fix | ~82 |
+| 15:10 | Criado KEYMAP_EDITING.md (referência completa de edição de keymap) + corrigido layer order errado no CLAUDE.md (MOUSE não existe) | KEYMAP_EDITING.md, CLAUDE.md | ok | ~2.5k |
+| 14:45 | Session end: 2 writes across 2 files (KEYMAP_EDITING.md, CLAUDE.md) | 3 reads | ~8357 tok |
+
+## Session: 2026-05-18 14:30
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+| 15:21 | Created ../../.claude/projects/-home-bgarciamoura-projects-zmk-charybdis/memory/nrf52840_supermini_pinout.md | — | ~1484 |
+| 15:21 | Edited ../../.claude/projects/-home-bgarciamoura-projects-zmk-charybdis/memory/nrf52840_supermini_pinout.md | 3→8 lines | ~227 |
+| 15:21 | Edited ../../.claude/projects/-home-bgarciamoura-projects-zmk-charybdis/memory/MEMORY.md | 1→2 lines | ~119 |
+| 15:22 | Session end: 3 writes across 2 files (nrf52840_supermini_pinout.md, MEMORY.md) | 4 reads | ~2615 tok |
+| 15:28 | Session end: 3 writes across 2 files (nrf52840_supermini_pinout.md, MEMORY.md) | 6 reads | ~4478 tok |
+| 15:33 | Session end: 3 writes across 2 files (nrf52840_supermini_pinout.md, MEMORY.md) | 6 reads | ~4478 tok |
+| 15:44 | Session end: 3 writes across 2 files (nrf52840_supermini_pinout.md, MEMORY.md) | 6 reads | ~4478 tok |
+| 15:49 | Session end: 3 writes across 2 files (nrf52840_supermini_pinout.md, MEMORY.md) | 6 reads | ~4478 tok |
+
+## Session: 2026-05-18 15:54
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+
+## Session: 2026-05-18 16:57
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+
+## Session: 2026-05-19 22:01
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|

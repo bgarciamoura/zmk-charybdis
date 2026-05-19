@@ -303,6 +303,18 @@
       "related_bugs": [],
       "occurrences": 1,
       "last_seen": "2026-05-17T16:30:00.000Z"
+    },
+    {
+      "id": "bug-018",
+      "timestamp": "2026-05-17T17:00:00.000Z",
+      "error_message": "Half direita: pressionar uma tecla das colunas centrais (U, I, J, K, M, vírgula) emite DOIS caracteres — top row 'iu', mid row 'kj'. Pressionar M sozinha emite ` (backtick) porque positions 31+32 disparam juntas e bate combo_app_windows (combos.dtsi:78) que executa LA(GRAVE). ZMK Studio não corrige (edita binding na posição lógica, mas o problema é a matriz reportando duas coords). Multímetro em continuidade entre D6 (pro_micro 6, col 3) e D7 (pro_micro 7, col 4) do nice!nano NÃO acusa curto.",
+      "file": "—",
+      "root_cause": "SOLDA FRIA em um ou mais diodos da matriz (lado das cols 3 e 4 do shield direito = pinos D6/D7 do nice!nano). Confirmado quando o usuário passou o dedo sobre os diodos da região e o doubling sumiu temporariamente — a pressão minúscula reencaixou o pino do diodo no pad. Solda fria faz contato intermitente de ALTA IMPEDÂNCIA: o GPIO scan lê 'high' com microamperes, mas o multímetro injeta corrente maior e o contato falha. **Falso negativo clássico do multímetro em modo continuidade pra diagnosticar solda fria.**",
+      "fix": "1. Inspeção com lupa nos diodos das cols 3 e 4 do lado direito (mínimo 6: U, J, M, I, K, vírgula). Procurar solda fosca/côncava, perninha não molhada, microfratura no menisco. 2. Reflow a 340-360°C: toca pino+pad, espera 1-2s a solda derreter, retira. Adicionar solda fresca com flux se ressecada. 3. Se sintoma voltar após reflow, suspeitar de pad lifted ou diodo com fratura interna → trocar o diodo. **Por que não é firmware/keymap:** o doubling de 'iu'/'kj' prova que a kscan reporta dois (row,col) distintos pra um único press, antes do keymap rodar. Studio só edita bindings, não a kscan layer.",
+      "tags": ["hardware", "diode", "matrix", "cold-solder", "multimeter-false-negative", "kscan", "doubling", "combo", "zmk-studio-limitation"],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-17T17:00:00.000Z"
     }
   ]
 }

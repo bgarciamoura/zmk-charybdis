@@ -1,7 +1,7 @@
 # anatomy.md
 
-> Auto-maintained by OpenWolf. Last scanned: 2026-05-17T16:34:50.816Z
-> Files: 86 tracked | Anatomy hits: 0 | Misses: 0
+> Auto-maintained by OpenWolf. Last scanned: 2026-05-18T18:21:53.963Z
+> Files: 88 tracked | Anatomy hits: 0 | Misses: 0
 
 ## ../../../../tmp/
 
@@ -15,7 +15,8 @@
 ## ../../.claude/projects/-home-bgarciamoura-projects-zmk-charybdis/memory/
 
 - `charybdis_hardware_setup.md` — Composição da montagem (~1051 tok)
-- `MEMORY.md` — Memory Index (~149 tok)
+- `MEMORY.md` — Memory Index (~210 tok)
+- `nrf52840_supermini_pinout.md` — Identificação (~1579 tok)
 - `zmk_pmw3360_modules.md` (~476 tok)
 - `zmk_split_ble_findings.md` — Como ZMK split realmente pareia (~842 tok)
 
@@ -23,7 +24,8 @@
 
 - `.gitignore` — Git ignore rules (~170 tok)
 - `build.yaml` — Build matrix describing every board/shield/keymap combo to build. (~1700 tok)
-- `CLAUDE.md` — OpenWolf (~1584 tok)
+- `CLAUDE.md` — OpenWolf (~1607 tok)
+- `KEYMAP_EDITING.md` — Referência de quais arquivos editar pra cada tipo de mudança no keymap (bindings, behaviors, combos, macros, trackball, layout físico). Inclui layer indices canônicos (BASE 0 / NUM 1 / NAV 2 / SYM 3 / GAME 4 / EXTRAS 5 / SLOW 6 / SCROLL 7), key positions e fluxo de build. (~2348 tok)
 - `README.md` — Project documentation (~2845 tok)
 - `TRACKBALL_MOD.md` — Passo-a-passo do mod PMW3360 + Bastardkb Elite-C Holder 2.1 stock + nice!nano: jumper CS sensor→P0.20, troca driver pra george-norton/zmk-driver-pmw3360, polled mode. **Histórico — usuário migrou pra PMW3610.** (~3059 tok)
 - `TRACKBALL_PMW3610.md` — Guia ATIVO: setup PMW3610-Module (chinês 32mm com LDO 2.0V) + Bastardkb Elite-C Holder 2.1 stock + nice!nano. Pinout J8 completo, 3 jumpers diretos (VDDIO+VDD→VCC, NCS→D3/P0.20, MOT→D0/P0.06), pinctrl SCK=P1.13/SDIO=P0.10. Troubleshooting + apêndice histórico. (~2804 tok)
