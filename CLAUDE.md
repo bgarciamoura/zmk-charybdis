@@ -62,7 +62,7 @@ Both build paths automatically add `-S studio-rpc-usb-uart` (CI: `-DSNIPPET=stud
 - **Trackball behavior** (speed, scroll, precision mode): `config/trackball/charybdis_pointer.dtsi`. Layer overrides in this file reference the SCROLL (7) and SLOW (6) layers — keep these in sync with the layer indices used in keymaps.
 - **Combos / macros / behaviors** (HRM, tap-dance, layer-tap variants): `config/keymap_features/{combos,macros,behaviors}.dtsi`. Included by every keymap.
 - **Physical layout** (key positions for keymap-drawer and ZMK Studio): `config/charybdis-layouts.dtsi`.
-- **Per-keymap layout** (layer order, bindings): `config/keymaps/<name>.keymap`. Layer order is BASE/NUM/NAV/SYM/GAME/EXTRAS/MOUSE/SLOW/SCROLL — many other files reference these by index, so don't reorder lightly.
+- **Per-keymap layout** (layer order, bindings): `config/keymaps/<name>.keymap`. Layer order is BASE(0)/NUM(1)/NAV(2)/SYM(3)/GAME(4)/EXTRAS(5)/SLOW(6)/SCROLL(7) — 8 layers, no MOUSE. Many other files reference these by index, so don't reorder lightly. See `KEYMAP_EDITING.md` for a full editing reference.
 - **Prospector display variants:** `config/dongle_prospector_layouts/` (operator/classic/radii/field) and `config/dongle_prospector_themes/` (radii-only color overlays). Selection is per build entry in `build.yaml`.
 
 ### Settings reset is a special case
