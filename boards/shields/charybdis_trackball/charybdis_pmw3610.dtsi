@@ -33,15 +33,16 @@
         reg = <0>;
         spi-max-frequency = <2000000>;
         irq-gpios = <&gpio0 6 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
-        cpi = <800>;
+        cpi = <400>; /* 800 era rápido demais (ajustado 2026-07-07) */
         evt-type = <INPUT_EV_REL>;
         x-input-code = <INPUT_REL_X>;
         y-input-code = <INPUT_REL_Y>;
 
         /* CONFIG_PMW3610_ALT_SWAP_XY / INVERT_X / INVERT_Y are deprecated - use DTS properties */
+        /* Orientação calibrada 2026-07-07 (montagem do módulo chinês no holder 2.1):
+           com swap-xy + ambos inverts, cursor saía 180° girado (direita→esquerda,
+           cima→baixo). Removidos invert-x/invert-y; swap-xy permanece. */
         swap-xy;
-        invert-x;
-        invert-y;
 
         force-awake;
         /* keep the sensor awake while ZMK activity state is ACTIVE,
