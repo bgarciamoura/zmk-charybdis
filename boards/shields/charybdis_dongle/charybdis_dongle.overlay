@@ -11,6 +11,7 @@
         zmk,kscan           = &kscan0;
         zmk,physical-layout = &charybdis_physical_layout;
         zmk,input-device    = &trackball_split;
+        zephyr,display      = &oled;
     };
 
     kscan0: kscan_1 {
@@ -67,9 +68,30 @@
     };
 };
 
-/* Ambient light sensor not installed on dongle - disable I2C1 to prevent
-   nRF52840 TWIM from hanging on probe (no ACK -> WDT reset loop) */
-&i2c1 { status = "disabled"; };
+/* I2C1 on XIAO BLE = D4 (SDA, P0.04) / D5 (SCL, P0.05).
+   SSD1306 0.96" 128x64 OLED wired here:
+     VCC -> 3V3, GND -> GND, SDA -> D4 (P4), SCL -> D5 (P5).
+   Bus stays at the 100kHz default — 400kHz over jumper wires is unreliable.
+   prechargep=0xF1 matches the internal charge-pump path (3.3V VCC).
+   ready-time-ms bumped to 50 to absorb charge-pump inrush during boot. */
+&i2c1 {
+    status = "okay";
+
+    oled: ssd1306@3c {
+        compatible = "solomon,ssd1306fb";
+        reg = <0x3c>;
+        width = <128>;
+        height = <64>;
+        segment-offset = <0>;
+        page-offset = <0>;
+        display-offset = <0>;
+        multiplex-ratio = <63>;
+        prechargep = <0xF1>;
+        ready-time-ms = <50>;
+        segment-remap;
+        com-invdir;
+    };
+};
 
 /* charybdis_pointer.dtsi references &trackball_listener - must come after node definition */
 #include "../../config/trackball/charybdis_pointer.dtsi"
