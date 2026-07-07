@@ -5,7 +5,7 @@ set -euo pipefail
 START_TIME=$(date +%s)
 
 # --- CONFIGURABLE SETTINGS ---
-ENABLE_USB_LOGGING="false"                         # Set to "true" to enable USB logging in the firmware
+ENABLE_USB_LOGGING="true"                          # Set to "true" to enable USB logging in the firmware
 REPO_ROOT="${REPO_ROOT:-$PWD}"                     # path to original repo root
 SHIELD_PATH="${SHIELD_PATH:-boards/shields}"       # where shield folders live relative to repo root
 CONFIG_PATH="${CONFIG_PATH:-config}"               # where configs live

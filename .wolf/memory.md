@@ -204,3 +204,55 @@
 
 | Time | Action | File(s) | Outcome | ~Tokens |
 |------|--------|---------|---------|--------|
+| 22:08 | Edited boards/shields/charybdis_dongle/charybdis_dongle.overlay | 14→16 lines | ~129 |
+| 22:08 | Edited boards/shields/charybdis_dongle/charybdis_dongle.overlay | expanded (+18 lines) | ~152 |
+| 22:08 | Edited boards/shields/charybdis_dongle/charybdis_dongle.conf | 3→7 lines | ~45 |
+| 22:08 | Add SSD1306 0.96" OLED on dongle (XIAO BLE i2c1 / D4-D5 / addr 0x3C). Re-enable i2c1 (was disabled for APDS9960). CONFIG_ZMK_DISPLAY=y + BLANK_ON_IDLE=n. | charybdis_dongle.{overlay,conf} | build kicked off | ~1k |
+| 22:12 | Session end: 3 writes across 2 files (charybdis_dongle.overlay, charybdis_dongle.conf) | 6 reads | ~2887 tok |
+| 22:21 | Session end: 3 writes across 2 files (charybdis_dongle.overlay, charybdis_dongle.conf) | 6 reads | ~2887 tok |
+| 22:34 | Edited boards/shields/charybdis_dongle/charybdis_dongle.overlay | 21→24 lines | ~207 |
+| 22:35 | Edited boards/shields/charybdis_dongle/charybdis_dongle.overlay | 3→2 lines | ~25 |
+| 22:35 | Session end: 5 writes across 2 files (charybdis_dongle.overlay, charybdis_dongle.conf) | 8 reads | ~3135 tok |
+| 22:42 | Session end: 5 writes across 2 files (charybdis_dongle.overlay, charybdis_dongle.conf) | 8 reads | ~3135 tok |
+
+## Session: 2026-05-19 11:18
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+| 11:23 | re-solder PMW3610 wires | TRACKBALL_PMW3610.md | guidance only (no edits) | ~6000 |
+| 12:19 | Edited boards/shields/charybdis_right_dongle/charybdis_right_dongle.conf | inline fix | ~10 |
+| 12:20 | Edited local-build/build_setup.sh | "false" → "true" | ~28 |
+| 12:20 | Session end: 2 writes across 2 files (charybdis_right_dongle.conf, build_setup.sh) | 5 reads | ~9133 tok |
+| 12:21 | Session end: 2 writes across 2 files (charybdis_right_dongle.conf, build_setup.sh) | 5 reads | ~9133 tok |
+| 12:30 | Session end: 2 writes across 2 files (charybdis_right_dongle.conf, build_setup.sh) | 5 reads | ~9133 tok |
+| 12:47 | Session end: 2 writes across 2 files (charybdis_right_dongle.conf, build_setup.sh) | 19 reads | ~11242 tok |
+| 12:57 | Session end: 2 writes across 2 files (charybdis_right_dongle.conf, build_setup.sh) | 19 reads | ~11242 tok |
+| 15:39 | Session end: 2 writes across 2 files (charybdis_right_dongle.conf, build_setup.sh) | 19 reads | ~11242 tok |
+| 15:42 | Session end: 2 writes across 2 files (charybdis_right_dongle.conf, build_setup.sh) | 19 reads | ~11242 tok |
+
+## Session: 2026-07-07 15:27
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+| 15:59 | Retomada debug trackball: validado que firmwares/dongle_standard_xiao/qwerty/charybdis_right_dongle.uf2 (19/05 12:27) já contém PMW3610 debug logging + USB CDC. Plano: flash + captura serial | firmwares/ | ok | ~200 |
+| 16:56 | Edited boards/shields/charybdis_right_dongle/charybdis_right_dongle.conf | modified FIX() | ~100 |
+| 16:59 | Edited build.yaml | modified TEMP() | ~70 |
+| 16:59 | Edited build.yaml | modified TEMP() | ~78 |
+| 17:05 | Diagnóstico trackball: race de power-up no init do PMW3610 (product id 0xff, IRQ nunca armada, MOT preso LOW). Fix: EXTRA_DELAY=500ms. Corrigidos erros D0/D1 e ordem 006/008 no guia. Build right_dongle disparado | charybdis_right_dongle.conf, TRACKBALL_PMW3610.md, build.yaml (temp), buglog, cerebrum | ok | ~3k |
+| 17:05 | Session end: 3 writes across 2 files (charybdis_right_dongle.conf, build.yaml) | 5 reads | ~2296 tok |
+| 17:06 | Edited build.yaml | 5→4 lines | ~46 |
+| 17:06 | Edited build.yaml | 7→6 lines | ~52 |
+| 17:07 | Build right_dongle com EXTRA_DELAY=500 concluído (3m39s, FLASH 29.59%). build.yaml restaurado pra matriz completa | firmwares/.../charybdis_right_dongle.uf2, build.yaml | ok | ~500 |
+| 17:08 | Session end: 5 writes across 2 files (charybdis_right_dongle.conf, build.yaml) | 5 reads | ~2394 tok |
+| 17:13 | Session end: 5 writes across 2 files (charybdis_right_dongle.conf, build.yaml) | 5 reads | ~2394 tok |
+| 17:21 | Trackball CONFIRMADO funcional pós EXTRA_DELAY=500 (usuário validou cursor via dongle). Obs: dongle tinha travado durante teste anterior (causa do notify -128). Próximo: orientação + DPI | .wolf/buglog.json | ok | ~300 |
+| 17:25 | Edited boards/shields/charybdis_trackball/charybdis_pmw3610.dtsi | inline fix | ~19 |
+| 17:25 | Edited boards/shields/charybdis_trackball/charybdis_pmw3610.dtsi | modified 07() | ~96 |
+| 17:25 | Edited build.yaml | modified TEMP() | ~70 |
+| 17:25 | Edited build.yaml | modified TEMP() | ~78 |
+| 17:27 | Session end: 9 writes across 3 files (charybdis_right_dongle.conf, build.yaml, charybdis_pmw3610.dtsi) | 6 reads | ~3275 tok |
+| 17:32 | Edited build.yaml | 5→4 lines | ~46 |
+| 17:32 | Edited build.yaml | 7→6 lines | ~52 |
+| 17:47 | Build right_dongle com orientação corrigida (removidos invert-x/y, mantido swap-xy) + CPI 800→400 (4m27s). build.yaml restaurado | charybdis_pmw3610.dtsi, build.yaml | ok | ~400 |
+| 17:48 | Session end: 11 writes across 3 files (charybdis_right_dongle.conf, build.yaml, charybdis_pmw3610.dtsi) | 6 reads | ~3373 tok |
+| 18:37 | Edited ../../.claude/projects/-home-bgarciamoura-projects-zmk-charybdis/memory/charybdis_hardware_setup.md | 1→2 lines | ~138 |

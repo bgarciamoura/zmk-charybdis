@@ -2,14 +2,14 @@
   "version": 1,
   "created_at": "2026-05-07T19:37:20.001Z",
   "lifetime": {
-    "total_tokens_estimated": 818784,
-    "total_reads": 1179,
-    "total_writes": 608,
-    "total_sessions": 10,
-    "anatomy_hits": 749,
-    "anatomy_misses": 430,
-    "repeated_reads_blocked": 71,
-    "estimated_savings_vs_bare_cli": 219831
+    "total_tokens_estimated": 930030,
+    "total_reads": 1340,
+    "total_writes": 671,
+    "total_sessions": 12,
+    "anatomy_hits": 836,
+    "anatomy_misses": 494,
+    "repeated_reads_blocked": 77,
+    "estimated_savings_vs_bare_cli": 237231
   },
   "sessions": [
     {
@@ -11836,6 +11836,1655 @@
         "writes_count": 0,
         "repeated_reads_blocked": 0,
         "anatomy_lookups": 1
+      }
+    },
+    {
+      "id": "session-2026-05-19-2201",
+      "started": "2026-05-19T01:01:36.464Z",
+      "ended": "2026-05-19T01:12:02.801Z",
+      "reads": [
+        {
+          "file": "/home/bgarciamoura/projects/zmk-charybdis/boards/shields/charybdis_dongle/charybdis_dongle.overlay",
+          "tokens_estimated": 643,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/home/bgarciamoura/projects/zmk-charybdis/boards/shields/charybdis_dongle/charybdis_dongle.conf",
+          "tokens_estimated": 196,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/home/bgarciamoura/projects/zmk-charybdis/build.yaml",
+          "tokens_estimated": 1700,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/home/bgarciamoura/projects/zmk-charybdis/zephyr/boards/seeed/xiao_ble/xiao_ble-pinctrl.dtsi",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/home/bgarciamoura/projects/zmk-charybdis/zephyr/boards/seeed/xiao_ble/seeed_xiao_connector.dtsi",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/home/bgarciamoura/projects/zmk-charybdis/zephyr/boards/seeed/xiao_ble/xiao_ble_common.dtsi",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        }
+      ],
+      "writes": [
+        {
+          "file": "/home/bgarciamoura/projects/zmk-charybdis/boards/shields/charybdis_dongle/charybdis_dongle.overlay",
+          "tokens_estimated": 138,
+          "action": "edit"
+        },
+        {
+          "file": "/home/bgarciamoura/projects/zmk-charybdis/boards/shields/charybdis_dongle/charybdis_dongle.overlay",
+          "tokens_estimated": 162,
+          "action": "edit"
+        },
+        {
+          "file": "/home/bgarciamoura/projects/zmk-charybdis/boards/shields/charybdis_dongle/charybdis_dongle.conf",
+          "tokens_estimated": 48,
+          "action": "edit"
+        }
+      ],
+      "totals": {
+        "input_tokens_estimated": 2539,
+        "output_tokens_estimated": 348,
+        "reads_count": 6,
+        "writes_count": 3,
+        "repeated_reads_blocked": 0,
+        "anatomy_lookups": 3
+      }
+    },
+    {
+      "id": "session-2026-05-19-2201",
+      "started": "2026-05-19T01:01:36.464Z",
+      "ended": "2026-05-19T01:21:28.836Z",
+      "reads": [
+        {
+          "file": "/home/bgarciamoura/projects/zmk-charybdis/boards/shields/charybdis_dongle/charybdis_dongle.overlay",
+          "tokens_estimated": 643,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/home/bgarciamoura/projects/zmk-charybdis/boards/shields/charybdis_dongle/charybdis_dongle.conf",
+          "tokens_estimated": 196,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/home/bgarciamoura/projects/zmk-charybdis/build.yaml",
+          "tokens_estimated": 1700,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/home/bgarciamoura/projects/zmk-charybdis/zephyr/boards/seeed/xiao_ble/xiao_ble-pinctrl.dtsi",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/home/bgarciamoura/projects/zmk-charybdis/zephyr/boards/seeed/xiao_ble/seeed_xiao_connector.dtsi",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/home/bgarciamoura/projects/zmk-charybdis/zephyr/boards/seeed/xiao_ble/xiao_ble_common.dtsi",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        }
+      ],
+      "writes": [
+        {
+          "file": "/home/bgarciamoura/projects/zmk-charybdis/boards/shields/charybdis_dongle/charybdis_dongle.overlay",
+          "tokens_estimated": 138,
+          "action": "edit"
+        },
+        {
+          "file": "/home/bgarciamoura/projects/zmk-charybdis/boards/shields/charybdis_dongle/charybdis_dongle.overlay",
+          "tokens_estimated": 162,
+          "action": "edit"
+        },
+        {
+          "file": "/home/bgarciamoura/projects/zmk-charybdis/boards/shields/charybdis_dongle/charybdis_dongle.conf",
+          "tokens_estimated": 48,
+          "action": "edit"
+        }
+      ],
+      "totals": {
+        "input_tokens_estimated": 2539,
+        "output_tokens_estimated": 348,
+        "reads_count": 6,
+        "writes_count": 3,
+        "repeated_reads_blocked": 0,
+        "anatomy_lookups": 3
+      }
+    },
+    {
+      "id": "session-2026-05-19-2201",
+      "started": "2026-05-19T01:01:36.464Z",
+      "ended": "2026-05-19T01:35:34.514Z",
+      "reads": [
+        {
+          "file": "/home/bgarciamoura/projects/zmk-charybdis/boards/shields/charybdis_dongle/charybdis_dongle.overlay",
+          "tokens_estimated": 643,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/home/bgarciamoura/projects/zmk-charybdis/boards/shields/charybdis_dongle/charybdis_dongle.conf",
+          "tokens_estimated": 196,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/home/bgarciamoura/projects/zmk-charybdis/build.yaml",
+          "tokens_estimated": 1700,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/home/bgarciamoura/projects/zmk-charybdis/zephyr/boards/seeed/xiao_ble/xiao_ble-pinctrl.dtsi",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/home/bgarciamoura/projects/zmk-charybdis/zephyr/boards/seeed/xiao_ble/seeed_xiao_connector.dtsi",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/home/bgarciamoura/projects/zmk-charybdis/zephyr/boards/seeed/xiao_ble/xiao_ble_common.dtsi",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/home/bgarciamoura/projects/zmk-charybdis/zephyr/dts/bindings/display/solomon,ssd1306fb-common.yaml",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/home/bgarciamoura/projects/zmk-charybdis/zephyr/drivers/display/ssd1306.c",
+          "tokens_estimated": 0,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        }
+      ],
+      "writes": [
+        {
+          "file": "/home/bgarciamoura/projects/zmk-charybdis/boards/shields/charybdis_dongle/charybdis_dongle.overlay",
+          "tokens_estimated": 138,
+          "action": "edit"
+        },
+        {
+          "file": "/home/bgarciamoura/projects/zmk-charybdis/boards/shields/charybdis_dongle/charybdis_dongle.overlay",
+          "tokens_estimated": 162,
+          "action": "edit"
+        },
+        {
+          "file": "/home/bgarciamoura/projects/zmk-charybdis/boards/shields/charybdis_dongle/charybdis_dongle.conf",
+          "tokens_estimated": 48,
+          "action": "edit"
+        },
+        {
+          "file": "/home/bgarciamoura/projects/zmk-charybdis/boards/shields/charybdis_dongle/charybdis_dongle.overlay",
+          "tokens_estimated": 221,
+          "action": "edit"
+        },
+        {
+          "file": "/home/bgarciamoura/projects/zmk-charybdis/boards/shields/charybdis_dongle/charybdis_dongle.overlay",
+          "tokens_estimated": 27,
+          "action": "edit"
+        }
+      ],
+      "totals": {
+        "input_tokens_estimated": 2539,
+        "output_tokens_estimated": 596,
+        "reads_count": 8,
+        "writes_count": 5,
+        "repeated_reads_blocked": 1,
+        "anatomy_lookups": 3
+      }
+    },
+    {
+      "id": "session-2026-05-19-2201",
+      "started": "2026-05-19T01:01:36.464Z",
+      "ended": "2026-05-19T01:42:52.222Z",
+      "reads": [
+        {
+          "file": "/home/bgarciamoura/projects/zmk-charybdis/boards/shields/charybdis_dongle/charybdis_dongle.overlay",
+          "tokens_estimated": 643,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/home/bgarciamoura/projects/zmk-charybdis/boards/shields/charybdis_dongle/charybdis_dongle.conf",
+          "tokens_estimated": 196,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/home/bgarciamoura/projects/zmk-charybdis/build.yaml",
+          "tokens_estimated": 1700,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/home/bgarciamoura/projects/zmk-charybdis/zephyr/boards/seeed/xiao_ble/xiao_ble-pinctrl.dtsi",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/home/bgarciamoura/projects/zmk-charybdis/zephyr/boards/seeed/xiao_ble/seeed_xiao_connector.dtsi",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/home/bgarciamoura/projects/zmk-charybdis/zephyr/boards/seeed/xiao_ble/xiao_ble_common.dtsi",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/home/bgarciamoura/projects/zmk-charybdis/zephyr/dts/bindings/display/solomon,ssd1306fb-common.yaml",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/home/bgarciamoura/projects/zmk-charybdis/zephyr/drivers/display/ssd1306.c",
+          "tokens_estimated": 0,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        }
+      ],
+      "writes": [
+        {
+          "file": "/home/bgarciamoura/projects/zmk-charybdis/boards/shields/charybdis_dongle/charybdis_dongle.overlay",
+          "tokens_estimated": 138,
+          "action": "edit"
+        },
+        {
+          "file": "/home/bgarciamoura/projects/zmk-charybdis/boards/shields/charybdis_dongle/charybdis_dongle.overlay",
+          "tokens_estimated": 162,
+          "action": "edit"
+        },
+        {
+          "file": "/home/bgarciamoura/projects/zmk-charybdis/boards/shields/charybdis_dongle/charybdis_dongle.conf",
+          "tokens_estimated": 48,
+          "action": "edit"
+        },
+        {
+          "file": "/home/bgarciamoura/projects/zmk-charybdis/boards/shields/charybdis_dongle/charybdis_dongle.overlay",
+          "tokens_estimated": 221,
+          "action": "edit"
+        },
+        {
+          "file": "/home/bgarciamoura/projects/zmk-charybdis/boards/shields/charybdis_dongle/charybdis_dongle.overlay",
+          "tokens_estimated": 27,
+          "action": "edit"
+        }
+      ],
+      "totals": {
+        "input_tokens_estimated": 2539,
+        "output_tokens_estimated": 596,
+        "reads_count": 8,
+        "writes_count": 5,
+        "repeated_reads_blocked": 1,
+        "anatomy_lookups": 3
+      }
+    },
+    {
+      "id": "session-2026-05-19-1118",
+      "started": "2026-05-19T14:18:59.725Z",
+      "ended": "2026-05-19T14:23:43.561Z",
+      "reads": [
+        {
+          "file": "/home/bgarciamoura/projects/zmk-charybdis/TRACKBALL_PMW3610.md",
+          "tokens_estimated": 2804,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        }
+      ],
+      "writes": [],
+      "totals": {
+        "input_tokens_estimated": 2804,
+        "output_tokens_estimated": 0,
+        "reads_count": 1,
+        "writes_count": 0,
+        "repeated_reads_blocked": 0,
+        "anatomy_lookups": 1
+      }
+    },
+    {
+      "id": "session-2026-05-19-1118",
+      "started": "2026-05-19T14:18:59.725Z",
+      "ended": "2026-05-19T14:33:29.164Z",
+      "reads": [
+        {
+          "file": "/home/bgarciamoura/projects/zmk-charybdis/TRACKBALL_PMW3610.md",
+          "tokens_estimated": 2804,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/home/bgarciamoura/projects/zmk-charybdis/boards/shields/charybdis_right_dongle/charybdis_right_dongle.conf",
+          "tokens_estimated": 342,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/home/bgarciamoura/projects/zmk-charybdis/boards/shields/charybdis_right_dongle/charybdis_right_dongle.overlay",
+          "tokens_estimated": 287,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        }
+      ],
+      "writes": [],
+      "totals": {
+        "input_tokens_estimated": 3433,
+        "output_tokens_estimated": 0,
+        "reads_count": 3,
+        "writes_count": 0,
+        "repeated_reads_blocked": 0,
+        "anatomy_lookups": 2
+      }
+    },
+    {
+      "id": "session-2026-05-19-1118",
+      "started": "2026-05-19T14:18:59.725Z",
+      "ended": "2026-05-19T15:06:45.680Z",
+      "reads": [
+        {
+          "file": "/home/bgarciamoura/projects/zmk-charybdis/TRACKBALL_PMW3610.md",
+          "tokens_estimated": 2804,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/home/bgarciamoura/projects/zmk-charybdis/boards/shields/charybdis_right_dongle/charybdis_right_dongle.conf",
+          "tokens_estimated": 342,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/home/bgarciamoura/projects/zmk-charybdis/boards/shields/charybdis_right_dongle/charybdis_right_dongle.overlay",
+          "tokens_estimated": 287,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        }
+      ],
+      "writes": [],
+      "totals": {
+        "input_tokens_estimated": 3433,
+        "output_tokens_estimated": 0,
+        "reads_count": 3,
+        "writes_count": 0,
+        "repeated_reads_blocked": 0,
+        "anatomy_lookups": 2
+      }
+    },
+    {
+      "id": "session-2026-05-19-1118",
+      "started": "2026-05-19T14:18:59.725Z",
+      "ended": "2026-05-19T15:10:26.592Z",
+      "reads": [
+        {
+          "file": "/home/bgarciamoura/projects/zmk-charybdis/TRACKBALL_PMW3610.md",
+          "tokens_estimated": 2804,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/home/bgarciamoura/projects/zmk-charybdis/boards/shields/charybdis_right_dongle/charybdis_right_dongle.conf",
+          "tokens_estimated": 342,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/home/bgarciamoura/projects/zmk-charybdis/boards/shields/charybdis_right_dongle/charybdis_right_dongle.overlay",
+          "tokens_estimated": 287,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        }
+      ],
+      "writes": [],
+      "totals": {
+        "input_tokens_estimated": 3433,
+        "output_tokens_estimated": 0,
+        "reads_count": 3,
+        "writes_count": 0,
+        "repeated_reads_blocked": 0,
+        "anatomy_lookups": 2
+      }
+    },
+    {
+      "id": "session-2026-05-19-1118",
+      "started": "2026-05-19T14:18:59.725Z",
+      "ended": "2026-05-19T15:20:40.525Z",
+      "reads": [
+        {
+          "file": "/home/bgarciamoura/projects/zmk-charybdis/TRACKBALL_PMW3610.md",
+          "tokens_estimated": 2804,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/home/bgarciamoura/projects/zmk-charybdis/boards/shields/charybdis_right_dongle/charybdis_right_dongle.conf",
+          "tokens_estimated": 342,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/home/bgarciamoura/projects/zmk-charybdis/boards/shields/charybdis_right_dongle/charybdis_right_dongle.overlay",
+          "tokens_estimated": 287,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/home/bgarciamoura/projects/zmk-charybdis/build.yaml",
+          "tokens_estimated": 1700,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/home/bgarciamoura/projects/zmk-charybdis/local-build/build_setup.sh",
+          "tokens_estimated": 3960,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        }
+      ],
+      "writes": [
+        {
+          "file": "/home/bgarciamoura/projects/zmk-charybdis/boards/shields/charybdis_right_dongle/charybdis_right_dongle.conf",
+          "tokens_estimated": 10,
+          "action": "edit"
+        },
+        {
+          "file": "/home/bgarciamoura/projects/zmk-charybdis/local-build/build_setup.sh",
+          "tokens_estimated": 30,
+          "action": "edit"
+        }
+      ],
+      "totals": {
+        "input_tokens_estimated": 9093,
+        "output_tokens_estimated": 40,
+        "reads_count": 5,
+        "writes_count": 2,
+        "repeated_reads_blocked": 0,
+        "anatomy_lookups": 4
+      }
+    },
+    {
+      "id": "session-2026-05-19-1118",
+      "started": "2026-05-19T14:18:59.725Z",
+      "ended": "2026-05-19T15:21:42.997Z",
+      "reads": [
+        {
+          "file": "/home/bgarciamoura/projects/zmk-charybdis/TRACKBALL_PMW3610.md",
+          "tokens_estimated": 2804,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/home/bgarciamoura/projects/zmk-charybdis/boards/shields/charybdis_right_dongle/charybdis_right_dongle.conf",
+          "tokens_estimated": 342,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/home/bgarciamoura/projects/zmk-charybdis/boards/shields/charybdis_right_dongle/charybdis_right_dongle.overlay",
+          "tokens_estimated": 287,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/home/bgarciamoura/projects/zmk-charybdis/build.yaml",
+          "tokens_estimated": 1700,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/home/bgarciamoura/projects/zmk-charybdis/local-build/build_setup.sh",
+          "tokens_estimated": 3960,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        }
+      ],
+      "writes": [
+        {
+          "file": "/home/bgarciamoura/projects/zmk-charybdis/boards/shields/charybdis_right_dongle/charybdis_right_dongle.conf",
+          "tokens_estimated": 10,
+          "action": "edit"
+        },
+        {
+          "file": "/home/bgarciamoura/projects/zmk-charybdis/local-build/build_setup.sh",
+          "tokens_estimated": 30,
+          "action": "edit"
+        }
+      ],
+      "totals": {
+        "input_tokens_estimated": 9093,
+        "output_tokens_estimated": 40,
+        "reads_count": 5,
+        "writes_count": 2,
+        "repeated_reads_blocked": 0,
+        "anatomy_lookups": 4
+      }
+    },
+    {
+      "id": "session-2026-05-19-1118",
+      "started": "2026-05-19T14:18:59.725Z",
+      "ended": "2026-05-19T15:30:42.275Z",
+      "reads": [
+        {
+          "file": "/home/bgarciamoura/projects/zmk-charybdis/TRACKBALL_PMW3610.md",
+          "tokens_estimated": 2804,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/home/bgarciamoura/projects/zmk-charybdis/boards/shields/charybdis_right_dongle/charybdis_right_dongle.conf",
+          "tokens_estimated": 342,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/home/bgarciamoura/projects/zmk-charybdis/boards/shields/charybdis_right_dongle/charybdis_right_dongle.overlay",
+          "tokens_estimated": 287,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/home/bgarciamoura/projects/zmk-charybdis/build.yaml",
+          "tokens_estimated": 1700,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/home/bgarciamoura/projects/zmk-charybdis/local-build/build_setup.sh",
+          "tokens_estimated": 3960,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        }
+      ],
+      "writes": [
+        {
+          "file": "/home/bgarciamoura/projects/zmk-charybdis/boards/shields/charybdis_right_dongle/charybdis_right_dongle.conf",
+          "tokens_estimated": 10,
+          "action": "edit"
+        },
+        {
+          "file": "/home/bgarciamoura/projects/zmk-charybdis/local-build/build_setup.sh",
+          "tokens_estimated": 30,
+          "action": "edit"
+        }
+      ],
+      "totals": {
+        "input_tokens_estimated": 9093,
+        "output_tokens_estimated": 40,
+        "reads_count": 5,
+        "writes_count": 2,
+        "repeated_reads_blocked": 0,
+        "anatomy_lookups": 4
+      }
+    },
+    {
+      "id": "session-2026-05-19-1118",
+      "started": "2026-05-19T14:18:59.725Z",
+      "ended": "2026-05-19T15:47:54.852Z",
+      "reads": [
+        {
+          "file": "/home/bgarciamoura/projects/zmk-charybdis/TRACKBALL_PMW3610.md",
+          "tokens_estimated": 2804,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/home/bgarciamoura/projects/zmk-charybdis/boards/shields/charybdis_right_dongle/charybdis_right_dongle.conf",
+          "tokens_estimated": 342,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/home/bgarciamoura/projects/zmk-charybdis/boards/shields/charybdis_right_dongle/charybdis_right_dongle.overlay",
+          "tokens_estimated": 287,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/home/bgarciamoura/projects/zmk-charybdis/build.yaml",
+          "tokens_estimated": 1700,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/home/bgarciamoura/projects/zmk-charybdis/local-build/build_setup.sh",
+          "tokens_estimated": 3960,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/home/bgarciamoura/projects/zmk-charybdis/config/trackball/charybdis_pointer.dtsi",
+          "tokens_estimated": 208,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/home/bgarciamoura/projects/zmk-charybdis/boards/shields/charybdis_trackball/charybdis_pmw3610.dtsi",
+          "tokens_estimated": 610,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/home/bgarciamoura/projects/zmk-charybdis/boards/shields/charybdis_dongle/charybdis_dongle.overlay",
+          "tokens_estimated": 813,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/home/bgarciamoura/projects/zmk-charybdis/boards/shields/charybdis_dongle/charybdis_dongle.conf",
+          "tokens_estimated": 227,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/home/bgarciamoura/projects/zmk-charybdis/boards/shields/charybdis_common/Kconfig.dongle.defconfig",
+          "tokens_estimated": 68,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/home/bgarciamoura/projects/zmk-charybdis/boards/shields/charybdis_left_dongle/charybdis_left_dongle.conf",
+          "tokens_estimated": 20,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/home/bgarciamoura/projects/zmk-charybdis/boards/shields/charybdis_left_dongle/charybdis_left_dongle.overlay",
+          "tokens_estimated": 163,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/home/bgarciamoura/projects/zmk-charybdis/zmk/app/dts/bindings/zmk,input-split.yaml",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/home/bgarciamoura/projects/zmk-charybdis/zmk/app/src/split/bluetooth/central.c",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/home/bgarciamoura/projects/zmk-charybdis/zmk/app/src/pointing/input_split.c",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/home/bgarciamoura/projects/zmk-charybdis/zmk/app/src/pointing/Kconfig",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/home/bgarciamoura/projects/zmk-charybdis/zmk/app/src/split/central.c",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/home/bgarciamoura/projects/zmk-charybdis/zmk/app/src/pointing/input_listener.c",
+          "tokens_estimated": 0,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/home/bgarciamoura/projects/zmk-charybdis/zmk/app/dts/bindings/zmk,input-listener.yaml",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        }
+      ],
+      "writes": [
+        {
+          "file": "/home/bgarciamoura/projects/zmk-charybdis/boards/shields/charybdis_right_dongle/charybdis_right_dongle.conf",
+          "tokens_estimated": 10,
+          "action": "edit"
+        },
+        {
+          "file": "/home/bgarciamoura/projects/zmk-charybdis/local-build/build_setup.sh",
+          "tokens_estimated": 30,
+          "action": "edit"
+        }
+      ],
+      "totals": {
+        "input_tokens_estimated": 11202,
+        "output_tokens_estimated": 40,
+        "reads_count": 19,
+        "writes_count": 2,
+        "repeated_reads_blocked": 1,
+        "anatomy_lookups": 11
+      }
+    },
+    {
+      "id": "session-2026-05-19-1118",
+      "started": "2026-05-19T14:18:59.725Z",
+      "ended": "2026-05-19T15:57:06.235Z",
+      "reads": [
+        {
+          "file": "/home/bgarciamoura/projects/zmk-charybdis/TRACKBALL_PMW3610.md",
+          "tokens_estimated": 2804,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/home/bgarciamoura/projects/zmk-charybdis/boards/shields/charybdis_right_dongle/charybdis_right_dongle.conf",
+          "tokens_estimated": 342,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/home/bgarciamoura/projects/zmk-charybdis/boards/shields/charybdis_right_dongle/charybdis_right_dongle.overlay",
+          "tokens_estimated": 287,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/home/bgarciamoura/projects/zmk-charybdis/build.yaml",
+          "tokens_estimated": 1700,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/home/bgarciamoura/projects/zmk-charybdis/local-build/build_setup.sh",
+          "tokens_estimated": 3960,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/home/bgarciamoura/projects/zmk-charybdis/config/trackball/charybdis_pointer.dtsi",
+          "tokens_estimated": 208,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/home/bgarciamoura/projects/zmk-charybdis/boards/shields/charybdis_trackball/charybdis_pmw3610.dtsi",
+          "tokens_estimated": 610,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/home/bgarciamoura/projects/zmk-charybdis/boards/shields/charybdis_dongle/charybdis_dongle.overlay",
+          "tokens_estimated": 813,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/home/bgarciamoura/projects/zmk-charybdis/boards/shields/charybdis_dongle/charybdis_dongle.conf",
+          "tokens_estimated": 227,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/home/bgarciamoura/projects/zmk-charybdis/boards/shields/charybdis_common/Kconfig.dongle.defconfig",
+          "tokens_estimated": 68,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/home/bgarciamoura/projects/zmk-charybdis/boards/shields/charybdis_left_dongle/charybdis_left_dongle.conf",
+          "tokens_estimated": 20,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/home/bgarciamoura/projects/zmk-charybdis/boards/shields/charybdis_left_dongle/charybdis_left_dongle.overlay",
+          "tokens_estimated": 163,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/home/bgarciamoura/projects/zmk-charybdis/zmk/app/dts/bindings/zmk,input-split.yaml",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/home/bgarciamoura/projects/zmk-charybdis/zmk/app/src/split/bluetooth/central.c",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/home/bgarciamoura/projects/zmk-charybdis/zmk/app/src/pointing/input_split.c",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/home/bgarciamoura/projects/zmk-charybdis/zmk/app/src/pointing/Kconfig",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/home/bgarciamoura/projects/zmk-charybdis/zmk/app/src/split/central.c",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/home/bgarciamoura/projects/zmk-charybdis/zmk/app/src/pointing/input_listener.c",
+          "tokens_estimated": 0,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/home/bgarciamoura/projects/zmk-charybdis/zmk/app/dts/bindings/zmk,input-listener.yaml",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        }
+      ],
+      "writes": [
+        {
+          "file": "/home/bgarciamoura/projects/zmk-charybdis/boards/shields/charybdis_right_dongle/charybdis_right_dongle.conf",
+          "tokens_estimated": 10,
+          "action": "edit"
+        },
+        {
+          "file": "/home/bgarciamoura/projects/zmk-charybdis/local-build/build_setup.sh",
+          "tokens_estimated": 30,
+          "action": "edit"
+        }
+      ],
+      "totals": {
+        "input_tokens_estimated": 11202,
+        "output_tokens_estimated": 40,
+        "reads_count": 19,
+        "writes_count": 2,
+        "repeated_reads_blocked": 1,
+        "anatomy_lookups": 11
+      }
+    },
+    {
+      "id": "session-2026-05-19-1118",
+      "started": "2026-05-19T14:18:59.725Z",
+      "ended": "2026-05-19T18:39:20.522Z",
+      "reads": [
+        {
+          "file": "/home/bgarciamoura/projects/zmk-charybdis/TRACKBALL_PMW3610.md",
+          "tokens_estimated": 2804,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/home/bgarciamoura/projects/zmk-charybdis/boards/shields/charybdis_right_dongle/charybdis_right_dongle.conf",
+          "tokens_estimated": 342,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/home/bgarciamoura/projects/zmk-charybdis/boards/shields/charybdis_right_dongle/charybdis_right_dongle.overlay",
+          "tokens_estimated": 287,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/home/bgarciamoura/projects/zmk-charybdis/build.yaml",
+          "tokens_estimated": 1700,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/home/bgarciamoura/projects/zmk-charybdis/local-build/build_setup.sh",
+          "tokens_estimated": 3960,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/home/bgarciamoura/projects/zmk-charybdis/config/trackball/charybdis_pointer.dtsi",
+          "tokens_estimated": 208,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/home/bgarciamoura/projects/zmk-charybdis/boards/shields/charybdis_trackball/charybdis_pmw3610.dtsi",
+          "tokens_estimated": 610,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/home/bgarciamoura/projects/zmk-charybdis/boards/shields/charybdis_dongle/charybdis_dongle.overlay",
+          "tokens_estimated": 813,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/home/bgarciamoura/projects/zmk-charybdis/boards/shields/charybdis_dongle/charybdis_dongle.conf",
+          "tokens_estimated": 227,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/home/bgarciamoura/projects/zmk-charybdis/boards/shields/charybdis_common/Kconfig.dongle.defconfig",
+          "tokens_estimated": 68,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/home/bgarciamoura/projects/zmk-charybdis/boards/shields/charybdis_left_dongle/charybdis_left_dongle.conf",
+          "tokens_estimated": 20,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/home/bgarciamoura/projects/zmk-charybdis/boards/shields/charybdis_left_dongle/charybdis_left_dongle.overlay",
+          "tokens_estimated": 163,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/home/bgarciamoura/projects/zmk-charybdis/zmk/app/dts/bindings/zmk,input-split.yaml",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/home/bgarciamoura/projects/zmk-charybdis/zmk/app/src/split/bluetooth/central.c",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/home/bgarciamoura/projects/zmk-charybdis/zmk/app/src/pointing/input_split.c",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/home/bgarciamoura/projects/zmk-charybdis/zmk/app/src/pointing/Kconfig",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/home/bgarciamoura/projects/zmk-charybdis/zmk/app/src/split/central.c",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/home/bgarciamoura/projects/zmk-charybdis/zmk/app/src/pointing/input_listener.c",
+          "tokens_estimated": 0,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/home/bgarciamoura/projects/zmk-charybdis/zmk/app/dts/bindings/zmk,input-listener.yaml",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        }
+      ],
+      "writes": [
+        {
+          "file": "/home/bgarciamoura/projects/zmk-charybdis/boards/shields/charybdis_right_dongle/charybdis_right_dongle.conf",
+          "tokens_estimated": 10,
+          "action": "edit"
+        },
+        {
+          "file": "/home/bgarciamoura/projects/zmk-charybdis/local-build/build_setup.sh",
+          "tokens_estimated": 30,
+          "action": "edit"
+        }
+      ],
+      "totals": {
+        "input_tokens_estimated": 11202,
+        "output_tokens_estimated": 40,
+        "reads_count": 19,
+        "writes_count": 2,
+        "repeated_reads_blocked": 1,
+        "anatomy_lookups": 11
+      }
+    },
+    {
+      "id": "session-2026-05-19-1118",
+      "started": "2026-05-19T14:18:59.725Z",
+      "ended": "2026-05-19T18:42:16.684Z",
+      "reads": [
+        {
+          "file": "/home/bgarciamoura/projects/zmk-charybdis/TRACKBALL_PMW3610.md",
+          "tokens_estimated": 2804,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/home/bgarciamoura/projects/zmk-charybdis/boards/shields/charybdis_right_dongle/charybdis_right_dongle.conf",
+          "tokens_estimated": 342,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/home/bgarciamoura/projects/zmk-charybdis/boards/shields/charybdis_right_dongle/charybdis_right_dongle.overlay",
+          "tokens_estimated": 287,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/home/bgarciamoura/projects/zmk-charybdis/build.yaml",
+          "tokens_estimated": 1700,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/home/bgarciamoura/projects/zmk-charybdis/local-build/build_setup.sh",
+          "tokens_estimated": 3960,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/home/bgarciamoura/projects/zmk-charybdis/config/trackball/charybdis_pointer.dtsi",
+          "tokens_estimated": 208,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/home/bgarciamoura/projects/zmk-charybdis/boards/shields/charybdis_trackball/charybdis_pmw3610.dtsi",
+          "tokens_estimated": 610,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/home/bgarciamoura/projects/zmk-charybdis/boards/shields/charybdis_dongle/charybdis_dongle.overlay",
+          "tokens_estimated": 813,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/home/bgarciamoura/projects/zmk-charybdis/boards/shields/charybdis_dongle/charybdis_dongle.conf",
+          "tokens_estimated": 227,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/home/bgarciamoura/projects/zmk-charybdis/boards/shields/charybdis_common/Kconfig.dongle.defconfig",
+          "tokens_estimated": 68,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/home/bgarciamoura/projects/zmk-charybdis/boards/shields/charybdis_left_dongle/charybdis_left_dongle.conf",
+          "tokens_estimated": 20,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/home/bgarciamoura/projects/zmk-charybdis/boards/shields/charybdis_left_dongle/charybdis_left_dongle.overlay",
+          "tokens_estimated": 163,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/home/bgarciamoura/projects/zmk-charybdis/zmk/app/dts/bindings/zmk,input-split.yaml",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/home/bgarciamoura/projects/zmk-charybdis/zmk/app/src/split/bluetooth/central.c",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/home/bgarciamoura/projects/zmk-charybdis/zmk/app/src/pointing/input_split.c",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/home/bgarciamoura/projects/zmk-charybdis/zmk/app/src/pointing/Kconfig",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/home/bgarciamoura/projects/zmk-charybdis/zmk/app/src/split/central.c",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/home/bgarciamoura/projects/zmk-charybdis/zmk/app/src/pointing/input_listener.c",
+          "tokens_estimated": 0,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/home/bgarciamoura/projects/zmk-charybdis/zmk/app/dts/bindings/zmk,input-listener.yaml",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        }
+      ],
+      "writes": [
+        {
+          "file": "/home/bgarciamoura/projects/zmk-charybdis/boards/shields/charybdis_right_dongle/charybdis_right_dongle.conf",
+          "tokens_estimated": 10,
+          "action": "edit"
+        },
+        {
+          "file": "/home/bgarciamoura/projects/zmk-charybdis/local-build/build_setup.sh",
+          "tokens_estimated": 30,
+          "action": "edit"
+        }
+      ],
+      "totals": {
+        "input_tokens_estimated": 11202,
+        "output_tokens_estimated": 40,
+        "reads_count": 19,
+        "writes_count": 2,
+        "repeated_reads_blocked": 1,
+        "anatomy_lookups": 11
+      }
+    },
+    {
+      "id": "session-2026-07-07-1527",
+      "started": "2026-07-07T18:27:22.383Z",
+      "ended": "2026-07-07T18:59:56.223Z",
+      "reads": [
+        {
+          "file": "/home/bgarciamoura/.claude/projects/-home-bgarciamoura-projects-zmk-charybdis/memory/charybdis_hardware_setup.md",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/home/bgarciamoura/.claude/projects/-home-bgarciamoura-projects-zmk-charybdis/memory/zmk_pmw3360_modules.md",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        }
+      ],
+      "writes": [],
+      "totals": {
+        "input_tokens_estimated": 0,
+        "output_tokens_estimated": 0,
+        "reads_count": 2,
+        "writes_count": 0,
+        "repeated_reads_blocked": 0,
+        "anatomy_lookups": 0
+      }
+    },
+    {
+      "id": "session-2026-07-07-1527",
+      "started": "2026-07-07T18:27:22.383Z",
+      "ended": "2026-07-07T19:38:56.088Z",
+      "reads": [
+        {
+          "file": "/home/bgarciamoura/.claude/projects/-home-bgarciamoura-projects-zmk-charybdis/memory/charybdis_hardware_setup.md",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/home/bgarciamoura/.claude/projects/-home-bgarciamoura-projects-zmk-charybdis/memory/zmk_pmw3360_modules.md",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/home/bgarciamoura/.claude/projects/-home-bgarciamoura-projects-zmk-charybdis/memory/nrf52840_supermini_pinout.md",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        }
+      ],
+      "writes": [],
+      "totals": {
+        "input_tokens_estimated": 0,
+        "output_tokens_estimated": 0,
+        "reads_count": 3,
+        "writes_count": 0,
+        "repeated_reads_blocked": 0,
+        "anatomy_lookups": 0
+      }
+    },
+    {
+      "id": "session-2026-07-07-1527",
+      "started": "2026-07-07T18:27:22.383Z",
+      "ended": "2026-07-07T20:05:42.151Z",
+      "reads": [
+        {
+          "file": "/home/bgarciamoura/.claude/projects/-home-bgarciamoura-projects-zmk-charybdis/memory/charybdis_hardware_setup.md",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/home/bgarciamoura/.claude/projects/-home-bgarciamoura-projects-zmk-charybdis/memory/zmk_pmw3360_modules.md",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/home/bgarciamoura/.claude/projects/-home-bgarciamoura-projects-zmk-charybdis/memory/nrf52840_supermini_pinout.md",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/home/bgarciamoura/projects/zmk-charybdis/boards/shields/charybdis_right_dongle/charybdis_right_dongle.conf",
+          "tokens_estimated": 341,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/home/bgarciamoura/projects/zmk-charybdis/build.yaml",
+          "tokens_estimated": 1700,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        }
+      ],
+      "writes": [
+        {
+          "file": "/home/bgarciamoura/projects/zmk-charybdis/boards/shields/charybdis_right_dongle/charybdis_right_dongle.conf",
+          "tokens_estimated": 107,
+          "action": "edit"
+        },
+        {
+          "file": "/home/bgarciamoura/projects/zmk-charybdis/build.yaml",
+          "tokens_estimated": 70,
+          "action": "edit"
+        },
+        {
+          "file": "/home/bgarciamoura/projects/zmk-charybdis/build.yaml",
+          "tokens_estimated": 78,
+          "action": "edit"
+        }
+      ],
+      "totals": {
+        "input_tokens_estimated": 2041,
+        "output_tokens_estimated": 255,
+        "reads_count": 5,
+        "writes_count": 3,
+        "repeated_reads_blocked": 0,
+        "anatomy_lookups": 2
+      }
+    },
+    {
+      "id": "session-2026-07-07-1527",
+      "started": "2026-07-07T18:27:22.383Z",
+      "ended": "2026-07-07T20:08:13.439Z",
+      "reads": [
+        {
+          "file": "/home/bgarciamoura/.claude/projects/-home-bgarciamoura-projects-zmk-charybdis/memory/charybdis_hardware_setup.md",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/home/bgarciamoura/.claude/projects/-home-bgarciamoura-projects-zmk-charybdis/memory/zmk_pmw3360_modules.md",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/home/bgarciamoura/.claude/projects/-home-bgarciamoura-projects-zmk-charybdis/memory/nrf52840_supermini_pinout.md",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/home/bgarciamoura/projects/zmk-charybdis/boards/shields/charybdis_right_dongle/charybdis_right_dongle.conf",
+          "tokens_estimated": 341,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/home/bgarciamoura/projects/zmk-charybdis/build.yaml",
+          "tokens_estimated": 1700,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        }
+      ],
+      "writes": [
+        {
+          "file": "/home/bgarciamoura/projects/zmk-charybdis/boards/shields/charybdis_right_dongle/charybdis_right_dongle.conf",
+          "tokens_estimated": 107,
+          "action": "edit"
+        },
+        {
+          "file": "/home/bgarciamoura/projects/zmk-charybdis/build.yaml",
+          "tokens_estimated": 70,
+          "action": "edit"
+        },
+        {
+          "file": "/home/bgarciamoura/projects/zmk-charybdis/build.yaml",
+          "tokens_estimated": 78,
+          "action": "edit"
+        },
+        {
+          "file": "/home/bgarciamoura/projects/zmk-charybdis/build.yaml",
+          "tokens_estimated": 46,
+          "action": "edit"
+        },
+        {
+          "file": "/home/bgarciamoura/projects/zmk-charybdis/build.yaml",
+          "tokens_estimated": 52,
+          "action": "edit"
+        }
+      ],
+      "totals": {
+        "input_tokens_estimated": 2041,
+        "output_tokens_estimated": 353,
+        "reads_count": 5,
+        "writes_count": 5,
+        "repeated_reads_blocked": 0,
+        "anatomy_lookups": 2
+      }
+    },
+    {
+      "id": "session-2026-07-07-1527",
+      "started": "2026-07-07T18:27:22.383Z",
+      "ended": "2026-07-07T20:13:43.229Z",
+      "reads": [
+        {
+          "file": "/home/bgarciamoura/.claude/projects/-home-bgarciamoura-projects-zmk-charybdis/memory/charybdis_hardware_setup.md",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/home/bgarciamoura/.claude/projects/-home-bgarciamoura-projects-zmk-charybdis/memory/zmk_pmw3360_modules.md",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/home/bgarciamoura/.claude/projects/-home-bgarciamoura-projects-zmk-charybdis/memory/nrf52840_supermini_pinout.md",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/home/bgarciamoura/projects/zmk-charybdis/boards/shields/charybdis_right_dongle/charybdis_right_dongle.conf",
+          "tokens_estimated": 341,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/home/bgarciamoura/projects/zmk-charybdis/build.yaml",
+          "tokens_estimated": 1700,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        }
+      ],
+      "writes": [
+        {
+          "file": "/home/bgarciamoura/projects/zmk-charybdis/boards/shields/charybdis_right_dongle/charybdis_right_dongle.conf",
+          "tokens_estimated": 107,
+          "action": "edit"
+        },
+        {
+          "file": "/home/bgarciamoura/projects/zmk-charybdis/build.yaml",
+          "tokens_estimated": 70,
+          "action": "edit"
+        },
+        {
+          "file": "/home/bgarciamoura/projects/zmk-charybdis/build.yaml",
+          "tokens_estimated": 78,
+          "action": "edit"
+        },
+        {
+          "file": "/home/bgarciamoura/projects/zmk-charybdis/build.yaml",
+          "tokens_estimated": 46,
+          "action": "edit"
+        },
+        {
+          "file": "/home/bgarciamoura/projects/zmk-charybdis/build.yaml",
+          "tokens_estimated": 52,
+          "action": "edit"
+        }
+      ],
+      "totals": {
+        "input_tokens_estimated": 2041,
+        "output_tokens_estimated": 353,
+        "reads_count": 5,
+        "writes_count": 5,
+        "repeated_reads_blocked": 0,
+        "anatomy_lookups": 2
+      }
+    },
+    {
+      "id": "session-2026-07-07-1527",
+      "started": "2026-07-07T18:27:22.383Z",
+      "ended": "2026-07-07T20:27:36.014Z",
+      "reads": [
+        {
+          "file": "/home/bgarciamoura/.claude/projects/-home-bgarciamoura-projects-zmk-charybdis/memory/charybdis_hardware_setup.md",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/home/bgarciamoura/.claude/projects/-home-bgarciamoura-projects-zmk-charybdis/memory/zmk_pmw3360_modules.md",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/home/bgarciamoura/.claude/projects/-home-bgarciamoura-projects-zmk-charybdis/memory/nrf52840_supermini_pinout.md",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/home/bgarciamoura/projects/zmk-charybdis/boards/shields/charybdis_right_dongle/charybdis_right_dongle.conf",
+          "tokens_estimated": 341,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/home/bgarciamoura/projects/zmk-charybdis/build.yaml",
+          "tokens_estimated": 1700,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/home/bgarciamoura/projects/zmk-charybdis/boards/shields/charybdis_trackball/charybdis_pmw3610.dtsi",
+          "tokens_estimated": 610,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        }
+      ],
+      "writes": [
+        {
+          "file": "/home/bgarciamoura/projects/zmk-charybdis/boards/shields/charybdis_right_dongle/charybdis_right_dongle.conf",
+          "tokens_estimated": 107,
+          "action": "edit"
+        },
+        {
+          "file": "/home/bgarciamoura/projects/zmk-charybdis/build.yaml",
+          "tokens_estimated": 70,
+          "action": "edit"
+        },
+        {
+          "file": "/home/bgarciamoura/projects/zmk-charybdis/build.yaml",
+          "tokens_estimated": 78,
+          "action": "edit"
+        },
+        {
+          "file": "/home/bgarciamoura/projects/zmk-charybdis/build.yaml",
+          "tokens_estimated": 46,
+          "action": "edit"
+        },
+        {
+          "file": "/home/bgarciamoura/projects/zmk-charybdis/build.yaml",
+          "tokens_estimated": 52,
+          "action": "edit"
+        },
+        {
+          "file": "/home/bgarciamoura/projects/zmk-charybdis/boards/shields/charybdis_trackball/charybdis_pmw3610.dtsi",
+          "tokens_estimated": 20,
+          "action": "edit"
+        },
+        {
+          "file": "/home/bgarciamoura/projects/zmk-charybdis/boards/shields/charybdis_trackball/charybdis_pmw3610.dtsi",
+          "tokens_estimated": 103,
+          "action": "edit"
+        },
+        {
+          "file": "/home/bgarciamoura/projects/zmk-charybdis/build.yaml",
+          "tokens_estimated": 70,
+          "action": "edit"
+        },
+        {
+          "file": "/home/bgarciamoura/projects/zmk-charybdis/build.yaml",
+          "tokens_estimated": 78,
+          "action": "edit"
+        }
+      ],
+      "totals": {
+        "input_tokens_estimated": 2651,
+        "output_tokens_estimated": 624,
+        "reads_count": 6,
+        "writes_count": 9,
+        "repeated_reads_blocked": 0,
+        "anatomy_lookups": 3
+      }
+    },
+    {
+      "id": "session-2026-07-07-1527",
+      "started": "2026-07-07T18:27:22.383Z",
+      "ended": "2026-07-07T20:48:08.304Z",
+      "reads": [
+        {
+          "file": "/home/bgarciamoura/.claude/projects/-home-bgarciamoura-projects-zmk-charybdis/memory/charybdis_hardware_setup.md",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/home/bgarciamoura/.claude/projects/-home-bgarciamoura-projects-zmk-charybdis/memory/zmk_pmw3360_modules.md",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/home/bgarciamoura/.claude/projects/-home-bgarciamoura-projects-zmk-charybdis/memory/nrf52840_supermini_pinout.md",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/home/bgarciamoura/projects/zmk-charybdis/boards/shields/charybdis_right_dongle/charybdis_right_dongle.conf",
+          "tokens_estimated": 341,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/home/bgarciamoura/projects/zmk-charybdis/build.yaml",
+          "tokens_estimated": 1700,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "/home/bgarciamoura/projects/zmk-charybdis/boards/shields/charybdis_trackball/charybdis_pmw3610.dtsi",
+          "tokens_estimated": 610,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        }
+      ],
+      "writes": [
+        {
+          "file": "/home/bgarciamoura/projects/zmk-charybdis/boards/shields/charybdis_right_dongle/charybdis_right_dongle.conf",
+          "tokens_estimated": 107,
+          "action": "edit"
+        },
+        {
+          "file": "/home/bgarciamoura/projects/zmk-charybdis/build.yaml",
+          "tokens_estimated": 70,
+          "action": "edit"
+        },
+        {
+          "file": "/home/bgarciamoura/projects/zmk-charybdis/build.yaml",
+          "tokens_estimated": 78,
+          "action": "edit"
+        },
+        {
+          "file": "/home/bgarciamoura/projects/zmk-charybdis/build.yaml",
+          "tokens_estimated": 46,
+          "action": "edit"
+        },
+        {
+          "file": "/home/bgarciamoura/projects/zmk-charybdis/build.yaml",
+          "tokens_estimated": 52,
+          "action": "edit"
+        },
+        {
+          "file": "/home/bgarciamoura/projects/zmk-charybdis/boards/shields/charybdis_trackball/charybdis_pmw3610.dtsi",
+          "tokens_estimated": 20,
+          "action": "edit"
+        },
+        {
+          "file": "/home/bgarciamoura/projects/zmk-charybdis/boards/shields/charybdis_trackball/charybdis_pmw3610.dtsi",
+          "tokens_estimated": 103,
+          "action": "edit"
+        },
+        {
+          "file": "/home/bgarciamoura/projects/zmk-charybdis/build.yaml",
+          "tokens_estimated": 70,
+          "action": "edit"
+        },
+        {
+          "file": "/home/bgarciamoura/projects/zmk-charybdis/build.yaml",
+          "tokens_estimated": 78,
+          "action": "edit"
+        },
+        {
+          "file": "/home/bgarciamoura/projects/zmk-charybdis/build.yaml",
+          "tokens_estimated": 46,
+          "action": "edit"
+        },
+        {
+          "file": "/home/bgarciamoura/projects/zmk-charybdis/build.yaml",
+          "tokens_estimated": 52,
+          "action": "edit"
+        }
+      ],
+      "totals": {
+        "input_tokens_estimated": 2651,
+        "output_tokens_estimated": 722,
+        "reads_count": 6,
+        "writes_count": 11,
+        "repeated_reads_blocked": 0,
+        "anatomy_lookups": 3
       }
     }
   ],

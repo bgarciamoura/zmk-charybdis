@@ -1,6 +1,6 @@
 # anatomy.md
 
-> Auto-maintained by OpenWolf. Last scanned: 2026-05-18T18:21:53.963Z
+> Auto-maintained by OpenWolf. Last scanned: 2026-07-07T21:37:36.541Z
 > Files: 88 tracked | Anatomy hits: 0 | Misses: 0
 
 ## ../../../../tmp/
@@ -14,7 +14,7 @@
 
 ## ../../.claude/projects/-home-bgarciamoura-projects-zmk-charybdis/memory/
 
-- `charybdis_hardware_setup.md` — Composição da montagem (~1051 tok)
+- `charybdis_hardware_setup.md` — Composição da montagem (~1159 tok)
 - `MEMORY.md` — Memory Index (~210 tok)
 - `nrf52840_supermini_pinout.md` — Identificação (~1579 tok)
 - `zmk_pmw3360_modules.md` (~476 tok)
@@ -23,7 +23,7 @@
 ## ./
 
 - `.gitignore` — Git ignore rules (~170 tok)
-- `build.yaml` — Build matrix describing every board/shield/keymap combo to build. (~1700 tok)
+- `build.yaml` — Build matrix describing every board/shield/keymap combo to build. (~1646 tok)
 - `CLAUDE.md` — OpenWolf (~1607 tok)
 - `KEYMAP_EDITING.md` — Referência de quais arquivos editar pra cada tipo de mudança no keymap (bindings, behaviors, combos, macros, trackball, layout físico). Inclui layer indices canônicos (BASE 0 / NUM 1 / NAV 2 / SYM 3 / GAME 4 / EXTRAS 5 / SLOW 6 / SCROLL 7), key positions e fluxo de build. (~2348 tok)
 - `README.md` — Project documentation (~2845 tok)
@@ -52,8 +52,8 @@
 
 ## boards/shields/charybdis_dongle/
 
-- `charybdis_dongle.conf` — # Split keyboards (~196 tok)
-- `charybdis_dongle.overlay` — Documentation: https://zmk.dev/docs/development/hardware-integration/dongle (~643 tok)
+- `charybdis_dongle.conf` — # Split keyboards (~227 tok)
+- `charybdis_dongle.overlay` — Documentation: https://zmk.dev/docs/development/hardware-integration/dongle (~813 tok)
 - `Kconfig.defconfig` (~15 tok)
 - `Kconfig.shield` (~22 tok)
 
@@ -80,14 +80,14 @@
 
 ## boards/shields/charybdis_right_dongle/
 
-- `charybdis_right_dongle.conf` (~342 tok)
+- `charybdis_right_dongle.conf` (~420 tok)
 - `charybdis_right_dongle.overlay` — include "../charybdis_common/charybdis.dtsi" (~287 tok)
 - `Kconfig.defconfig` (~15 tok)
 - `Kconfig.shield` (~26 tok)
 
 ## boards/shields/charybdis_trackball/
 
-- `charybdis_pmw3610.dtsi` (~610 tok)
+- `charybdis_pmw3610.dtsi` (~679 tok)
 
 ## boards/zephyr/
 

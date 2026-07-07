@@ -2,7 +2,7 @@
 
 > OpenWolf's learning memory. Updated automatically as the AI learns from interactions.
 > Do not edit manually unless correcting an error.
-> Last updated: 2026-05-08
+> Last updated: 2026-07-07
 
 ## User Preferences
 
@@ -231,6 +231,64 @@ Quando o app crasha múltiplas vezes em sequência (watchdog reset rápido), o b
 
 **Fix:** reflow dos diodos suspeitos (340-360°C, ~1-2s no pino+pad, flux fresco se a solda parecer ressecada). Se voltar após reflow → pad lifted ou diodo internamente fraturado → trocar o componente.
 
+### XIAO BLE — mapeamento silk → peripheral (2026-05-19)
+
+Confirmado em `zephyr/boards/seeed/xiao_ble/seeed_xiao_connector.dtsi` + `xiao_ble-pinctrl.dtsi`. **Pegadinha:** o I2C exposto nos silks D4/D5 é o `i2c1`, NÃO o `i2c0`. `i2c0` está roteado pra P0.07/P0.27 (não expostos no header).
+
+| Silk | nRF GPIO | Função padrão |
+|------|----------|---------------|
+| D0 | P0.02 | GPIO/ADC |
+| D1 | P0.03 | GPIO/ADC |
+| D2 | P0.28 | GPIO/ADC |
+| D3 | P0.29 | GPIO/ADC |
+| D4 | P0.04 | **i2c1 SDA** |
+| D5 | P0.05 | **i2c1 SCL** |
+| D6 | P1.11 | uart0 TX |
+| D7 | P1.12 | uart0 RX |
+| D8 | P1.13 | spi2 SCK |
+| D9 | P1.14 | spi2 MISO |
+| D10 | P1.15 | spi2 MOSI |
+
+`seeed_xiao_connector.dtsi:31`: `xiao_i2c: &i2c1 {};` (alias canônico). `xiao_ble_common.dtsi:90-97`: i2c1 já vem `status="okay"` por default do board.
+
+**Implicação histórica:** `charybdis_dongle.overlay` tinha `&i2c1 { status = "disabled"; };` herdado da era nice!nano (comentário citava APDS9960). Isso quebrava qualquer periférico I2C plugado nos silks D4/D5. Removido em 2026-05-19 quando o usuário ligou um SSD1306.
+
+### SSD1306 0.96" 128x64 no dongle — config funcional (2026-05-19)
+
+Display I2C @ 0x3C ligado em D4 (SDA) / D5 (SCL) / 3V3 / GND. Config aplicada em `boards/shields/charybdis_dongle/`:
+
+**Overlay:**
+```dts
+#include <dt-bindings/i2c/i2c.h>
+chosen { zephyr,display = &oled; };
+&i2c1 {
+    status = "okay";
+    clock-frequency = <I2C_BITRATE_FAST>;
+    oled: ssd1306@3c {
+        compatible = "solomon,ssd1306fb";
+        reg = <0x3c>;
+        width = <128>; height = <64>;
+        segment-offset = <0>; page-offset = <0>; display-offset = <0>;
+        multiplex-ratio = <63>; prechargep = <0x22>;
+        segment-remap; com-invdir;
+    };
+};
+```
+
+**Conf:**
+```
+CONFIG_ZMK_DISPLAY=y
+CONFIG_ZMK_DISPLAY_BLANK_ON_IDLE=n
+```
+
+`CONFIG_ZMK_DISPLAY=y` puxa CONFIG_DISPLAY, LVGL, e widgets ZMK padrão (layer/BT/bateria). Driver SSD1306 é auto-selecionado pelo Zephyr via `DT_HAS_SOLOMON_SSD1306FB_ENABLED`. Não precisa `CONFIG_SSD1306=y` explícito.
+
+**Pegadinhas conhecidas:**
+- Se módulo vier com SA0=VCC, addr é 0x3D (ajustar `reg` e label do nó).
+- `segment-remap` + `com-invdir` viram a tela 180°. Se aparecer espelhada/invertida, remover.
+- Adiciona ~40 KB flash + ~8 KB RAM em cima do dongle. Cabe folgado (era 35% flash / 38% RAM antes).
+- Sem conflito com Studio (RPC via USB CDC, OLED via I2C).
+
 ### Hardware ESD damage — sintomas (2026-05-08)
 
 Em uma das placas montadas pelo usuário, o nRF52840 mostrou comportamento errático após soldagem:
@@ -248,6 +306,20 @@ Em uma das placas montadas pelo usuário, o nRF52840 mostrou comportamento errá
 - Não força stress mecânico nos pads do nRF52840
 - Manter umidade ambiente acima de 40% se possível
 
+### PMW3610-Module chinês — race de power-up no init (2026-07-07, bug-023)
+
+O LDO onboard do módulo faz o sensor demorar mais pra acordar do que o driver espera. Init roda ~640ms pós-boot, product id lê **0xFF** (barramento vazio), init aborta no step 2 e **a IRQ nunca é armada** → trackball morto pra sempre naquele boot, mesmo com sensor 100% funcional.
+
+**Assinatura de diagnóstico (distingue de fiação ruim):**
+- Boot: `Incorrect product id 0xff (expecting 0x3e)` + `initialization failed in step 2`
+- MAS `set_performance` (chamado pelo activity listener do ZMK) lê/escreve registros com sucesso depois → SPI comprovadamente OK
+- MOT medido preso em ~0V = sensor com motion data pendente que ninguém lê (comportamento correto, NÃO é defeito)
+- Self-test OB1 passa "por sorte" com bus vazio: `0xFF & 0x0F == 0x0F`
+
+**Fix:** `CONFIG_PMW3610_ALT_INIT_POWER_UP_EXTRA_DELAY_MS=500` no `.conf` (atrasa o ASYNC_INIT_STEP_POWER_UP). O boot que "funcionou por 44min" em sessão anterior passou por margem de timing — o bug é intermitente por natureza.
+
+**Nota driver:** o `280Zo/badjeff zmk-pmw3610-driver` EXIGE `irq-gpios` (`GPIO_DT_SPEC_INST_GET`, sem fallback) — não existe modo polled. Interrupção é `GPIO_INT_LEVEL_ACTIVE` (level, não edge), então MOT já-asserted no arm dispararia normalmente — o problema era só o init nunca chegar lá.
+
 ## Do-Not-Repeat
 
 <!-- Mistakes made and corrected. Each entry prevents the same mistake recurring. -->
@@ -263,6 +335,9 @@ Em uma das placas montadas pelo usuário, o nRF52840 mostrou comportamento errá
 - [2026-05-16] **Build local ZMK falha em runs subsequentes por mode-bit drift dos módulos west.** `local-build/build_setup.sh:62` faz `chmod -R 777 .west zmk zephyr modules zmk-pmw3610-driver prospector-zmk-module` (necessário pra usuário poder deletar artefatos criados como root pelo container). Isso muda mode bits 644→755 em todo arquivo dos módulos. `git` registra como modified. No próximo build, `west update` faz fetch+checkout dos módulos; se houver novos commits upstream, checkout falha com `error: Your local changes to the following files would be overwritten by checkout`. **Workaround manual antes do build:** `for m in zmk zephyr modules zmk-pmw3610-driver prospector-zmk-module; do git -C $m -c safe.directory=* checkout .; done`. **Fix durável (não aplicado ainda):** adicionar `git -C <mod> config core.filemode false` no build_setup.sh pra cada módulo antes do west update, ou mover o `chmod 777` pra dentro de gitignore/ignored paths apenas (build/, firmwares/).
 
 - [2026-05-17] **Edits ao `charybdis_pmw3610.dtsi` podem ser revertidos silenciosamente entre builds.** Cheguei a editar o pinctrl pra P1.13/P0.10 numa sessão, fui buildar, o build incluiu o driver mas no boot NENHUM log do `PMW3610_ALT` saía (driver init silencioso). Re-checkei o arquivo e estava com os pinos ANTIGOS (P0.08/P0.17). Edit foi revertido entre sessões — provavelmente por algum hook do OpenWolf que não conheço bem, ou edit não foi flushed antes do build começar. **Regra:** sempre confirmar com `Read` ou `grep` os arquivos críticos do device tree DEPOIS de editar e ANTES de iniciar build longo. Se driver inicializa sem nenhum log mas o build incluiu o módulo, suspeitar do pinctrl primeiro.
+
+- [2026-07-07] **TRACKBALL_PMW3610.md tinha rótulos de pino errados** (corrigidos): tabela dizia MOT → "D0 (silk 0/RX1/006)" mas **P0.06 = D1/TX** no nice!nano (D0/RX = P0.08); e o diagrama ASCII do SuperMini mostrava 008 acima de 006 quando a ordem real (foto 2026-05-18) é **006 acima de 008**. Ao gerar guias de pinout, sempre cross-checar rótulo Arduino ↔ GPIO contra a tabela verificada em nrf52840_supermini_pinout.md. Rótulo e GPIO na mesma célula DEVEM ser validados um contra o outro.
+- [2026-07-07] **"Incorrect product id 0xff" no boot + SPI funcionando depois ≠ fiação ruim** — é race de power-up (ver Key Learnings bug-023). Não mandar o usuário re-soldar antes de checar essa assinatura no log.
 
 ## Decision Log
 

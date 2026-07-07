@@ -299,7 +299,16 @@
       "file": "boards/shields/charybdis_trackball/charybdis_pmw3610.dtsi",
       "root_cause": "Edit anterior do pinctrl (mudando SCK de P0.08→P1.13 e MOSI/MISO de P0.17→P0.10 pra bater com header SPI da Bastardkb Elite-C Holder 2.1 stock) foi REVERTIDO entre sessões — provavelmente por hook do OpenWolf que não conheço, ou edit não foi flushed antes de iniciar build longo. Confirmado via Read+grep: arquivo no disco tinha pinos ANTIGOS (P0.08/P0.17) mesmo após Edit reportar sucesso. SPI mandava bits em pinos não conectados → product_id read retornava 0xFF lixo → init aborta silencioso (driver não atinge LOG_INF \"PMW3610 async init step\" nem LOG_ERR \"Incorrect product id\" — fica preso antes em algum check intermediário).",
       "fix": "Re-aplicar Edit do pinctrl. Confirmar IMEDIATAMENTE via `grep SPIM_SCK charybdis_pmw3610.dtsi` que os pinos corretos estão no disco. Rebuild só right_dongle (2m26s). Após reflash, logs aparecem corretamente: `[pmw3610_set_performance] ZMK ACTIVE, sensor FORCE AWAKE` + stream contínuo de `pmw3610_report_data: x/y: N/N`. **Aprendizado:** sempre re-grep o dtsi entre Edit e Build, especialmente quando edit já foi aplicado uma vez antes mas comportamento sugere que não pegou.",
-      "tags": ["zmk", "pmw3610", "spi", "pinctrl", "device-tree", "silent-init-failure", "dtsi", "hook-revert"],
+      "tags": [
+        "zmk",
+        "pmw3610",
+        "spi",
+        "pinctrl",
+        "device-tree",
+        "silent-init-failure",
+        "dtsi",
+        "hook-revert"
+      ],
       "related_bugs": [],
       "occurrences": 1,
       "last_seen": "2026-05-17T16:30:00.000Z"
@@ -311,10 +320,188 @@
       "file": "—",
       "root_cause": "SOLDA FRIA em um ou mais diodos da matriz (lado das cols 3 e 4 do shield direito = pinos D6/D7 do nice!nano). Confirmado quando o usuário passou o dedo sobre os diodos da região e o doubling sumiu temporariamente — a pressão minúscula reencaixou o pino do diodo no pad. Solda fria faz contato intermitente de ALTA IMPEDÂNCIA: o GPIO scan lê 'high' com microamperes, mas o multímetro injeta corrente maior e o contato falha. **Falso negativo clássico do multímetro em modo continuidade pra diagnosticar solda fria.**",
       "fix": "1. Inspeção com lupa nos diodos das cols 3 e 4 do lado direito (mínimo 6: U, J, M, I, K, vírgula). Procurar solda fosca/côncava, perninha não molhada, microfratura no menisco. 2. Reflow a 340-360°C: toca pino+pad, espera 1-2s a solda derreter, retira. Adicionar solda fresca com flux se ressecada. 3. Se sintoma voltar após reflow, suspeitar de pad lifted ou diodo com fratura interna → trocar o diodo. **Por que não é firmware/keymap:** o doubling de 'iu'/'kj' prova que a kscan reporta dois (row,col) distintos pra um único press, antes do keymap rodar. Studio só edita bindings, não a kscan layer.",
-      "tags": ["hardware", "diode", "matrix", "cold-solder", "multimeter-false-negative", "kscan", "doubling", "combo", "zmk-studio-limitation"],
+      "tags": [
+        "hardware",
+        "diode",
+        "matrix",
+        "cold-solder",
+        "multimeter-false-negative",
+        "kscan",
+        "doubling",
+        "combo",
+        "zmk-studio-limitation"
+      ],
       "related_bugs": [],
       "occurrences": 1,
       "last_seen": "2026-05-17T17:00:00.000Z"
+    },
+    {
+      "id": "bug-020",
+      "timestamp": "2026-05-19T01:08:29.058Z",
+      "error_message": "Significant refactor of ",
+      "file": "boards/shields/charybdis_dongle/charybdis_dongle.overlay",
+      "root_cause": "3 lines replaced/restructured",
+      "fix": "Rewrote 3→21 lines (3 removed)",
+      "tags": [
+        "auto-detected",
+        "refactor",
+        "overlay"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-19T01:08:29.058Z"
+    },
+    {
+      "id": "bug-021",
+      "timestamp": "2026-05-19T01:34:53.310Z",
+      "error_message": "Significant refactor of ",
+      "file": "boards/shields/charybdis_dongle/charybdis_dongle.overlay",
+      "root_cause": "3 lines replaced/restructured",
+      "fix": "Rewrote 21→24 lines (3 removed)",
+      "tags": [
+        "auto-detected",
+        "refactor",
+        "overlay"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-19T01:34:53.310Z"
+    },
+    {
+      "id": "bug-022",
+      "timestamp": "2026-05-19T15:20:13.927Z",
+      "error_message": "Incorrect value in code",
+      "file": "local-build/build_setup.sh",
+      "root_cause": "Had \"false\"",
+      "fix": "Changed to \"true\"",
+      "tags": [
+        "auto-detected",
+        "wrong-value",
+        "sh"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-05-19T15:20:13.927Z"
+    },
+    {
+      "id": "bug-023",
+      "timestamp": "2026-07-07T19:59:48.389Z",
+      "error_message": "Significant refactor of ",
+      "file": "build.yaml",
+      "root_cause": "3 lines replaced/restructured",
+      "fix": "Rewrote 4→5 lines (3 removed) | Also: - shield: charybdis_left_dongle; - shield: charybdis_dongle CONFIRMADO FUNCIONAL 2026-07-07 pelo usuário: init passa, cursor move via dongle.",
+      "tags": [
+        "auto-detected",
+        "refactor",
+        "yaml"
+      ],
+      "related_bugs": [],
+      "occurrences": 2,
+      "last_seen": "2026-07-07T00:00:00Z"
+    },
+    {
+      "id": "bug-023",
+      "timestamp": "2026-07-07T00:00:00Z",
+      "error_message": "Incorrect product id 0xff (expecting 0x3e)! / PMW3610 initialization failed in step 2. Trackball nunca reporta motion; MOT medido preso em ~0V apos power cycle.",
+      "file": "boards/shields/charybdis_right_dongle/charybdis_right_dongle.conf",
+      "root_cause": "Race de power-up: modulo PMW3610 chines (LDO 2.0V onboard) nao esta pronto quando o init do driver roda (~640ms pos-boot). Product id le 0xFF (barramento vazio), init aborta no step 2 e a IRQ nunca e armada. SPI comprovadamente funcional segundos depois (set_performance le/escreve registros OK). MOT preso em LOW = sensor com motion data pendente que ninguem le — nao e defeito de hardware. Fiacao 100% OK (continuidade e tensao verificadas pelo usuario).",
+      "fix": "CONFIG_PMW3610_ALT_INIT_POWER_UP_EXTRA_DELAY_MS=500 no charybdis_right_dongle.conf — atrasa o ASYNC_INIT_STEP_POWER_UP em +500ms, dando tempo do LDO/sensor acordar. CONFIRMADO FUNCIONAL 2026-07-07 pelo usuário: init passa, cursor move via dongle.",
+      "tags": [
+        "zmk",
+        "pmw3610",
+        "spi",
+        "power-up-race",
+        "init",
+        "irq",
+        "ldo",
+        "product-id-0xff"
+      ],
+      "related_bugs": [
+        "bug-008",
+        "bug-011"
+      ],
+      "occurrences": 1,
+      "last_seen": "2026-07-07T00:00:00Z"
+    },
+    {
+      "id": "bug-025",
+      "timestamp": "2026-07-07T20:06:27.765Z",
+      "error_message": "Significant refactor of ",
+      "file": "build.yaml",
+      "root_cause": "4 lines replaced/restructured",
+      "fix": "Rewrote 5→4 lines (4 removed) | Also: # TEMP (2026-07-07): left/dongle comentados pra re; #      - shield: charybdis_left_dongle",
+      "tags": [
+        "auto-detected",
+        "refactor",
+        "yaml"
+      ],
+      "related_bugs": [],
+      "occurrences": 2,
+      "last_seen": "2026-07-07T20:06:28.439Z"
+    },
+    {
+      "id": "bug-026",
+      "timestamp": "2026-07-07T20:25:27.380Z",
+      "error_message": "Wrong reference: 800 should be 400",
+      "file": "boards/shields/charybdis_trackball/charybdis_pmw3610.dtsi",
+      "root_cause": "Used \"800\" instead of \"400\"",
+      "fix": "Changed 800 → 400",
+      "tags": [
+        "auto-detected",
+        "wrong-reference",
+        "dtsi"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-07-07T20:25:27.380Z"
+    },
+    {
+      "id": "bug-027",
+      "timestamp": "2026-07-07T20:25:30.646Z",
+      "error_message": "Significant refactor of ",
+      "file": "boards/shields/charybdis_trackball/charybdis_pmw3610.dtsi",
+      "root_cause": "2 lines replaced/restructured",
+      "fix": "Rewrote 4→5 lines (2 removed)",
+      "tags": [
+        "auto-detected",
+        "refactor",
+        "dtsi"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-07-07T20:25:30.646Z"
+    },
+    {
+      "id": "bug-028",
+      "timestamp": "2026-07-07T20:25:39.606Z",
+      "error_message": "Significant refactor of ",
+      "file": "build.yaml",
+      "root_cause": "3 lines replaced/restructured",
+      "fix": "Rewrote 4→5 lines (3 removed) | Also: - shield: charybdis_left_dongle; - shield: charybdis_dongle",
+      "tags": [
+        "auto-detected",
+        "refactor",
+        "yaml"
+      ],
+      "related_bugs": [],
+      "occurrences": 2,
+      "last_seen": "2026-07-07T20:25:41.939Z"
+    },
+    {
+      "id": "bug-029",
+      "timestamp": "2026-07-07T20:32:07.511Z",
+      "error_message": "Significant refactor of ",
+      "file": "build.yaml",
+      "root_cause": "4 lines replaced/restructured",
+      "fix": "Rewrote 5→4 lines (4 removed) | Also: # TEMP (2026-07-07): left/dongle comentados pra re; #      - shield: charybdis_left_dongle",
+      "tags": [
+        "auto-detected",
+        "refactor",
+        "yaml"
+      ],
+      "related_bugs": [],
+      "occurrences": 2,
+      "last_seen": "2026-07-07T20:32:10.278Z"
     }
   ]
 }
