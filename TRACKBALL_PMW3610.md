@@ -82,7 +82,7 @@ NRESET─┤  │  │         │IO│  │  │
 | 4 | **VDDIO** | pad `VCC` do nice!nano (3.3V) | **jumper direto** ⚠️ | — (3.3V regulado) |
 | 5 | **VDD** | pad `VCC` do nice!nano (no mesmo fio do VDDIO) | jumper direto | — (3.3V regulado) |
 | 6 | **NCS** | pad `D3` (silk `3`/`SCL`/`020`) do nice!nano | **jumper direto** | P0.20 |
-| 7 | **MOT** | pad `D0` (silk `0`/`RX1`/`006`) do nice!nano | **jumper direto** | P0.06 |
+| 7 | **MOT** | pad `D1` (silk `1`/`TX`/`006`) do nice!nano | **jumper direto** | P0.06 |
 | 8 | **NRESET** | — | **não conectar** (sensor tem reset interno) | — |
 
 > **Crítico:** VDDIO e VDD são pads SEPARADOS do sensor — não fazer solder bridge entre eles. Soldar 2 fios separados no mesmo pad `VCC` do nice!nano (ou um Y de fios).
@@ -95,8 +95,8 @@ NRESET─┤  │  │         │IO│  │  │
                     USB-C
                   ┌─────────┐
               B-  │ ●     ● │  B+
-       D1/TX0 ►1  │ ●     ● │  RAW
-       D0/RX1 ►0  │ ●     ● │  GND        ◄── (D0 = MOT)
+       D1/TX0 ►1  │ ●     ● │  RAW        ◄── (D1 = MOT)
+       D0/RX1  0  │ ●     ● │  GND
               GND │ ●     ● │  RST
               GND │ ●     ● │  VCC        ◄── (VCC = VDDIO+VDD)
         D2/SDA►2  │ ●     ● │  21
@@ -110,8 +110,8 @@ NRESET─┤  │  │         │IO│  │  │
                     USB-C
                   ┌─────────┐
               B-  │ ●     ● │  B+
-              008 │ ●     ● │  RAW
-            ►006  │ ●     ● │  GND        ◄── 006 = nice!nano D0 = MOT
+            ►006  │ ●     ● │  RAW        ◄── 006 = MOT (nice!nano D1)
+              008 │ ●     ● │  GND
               GND │ ●     ● │  RST
               GND │ ●     ● │  VCC        ◄── VCC = VDDIO+VDD (3.3V)
               017 │ ●     ● │  031
@@ -122,8 +122,8 @@ NRESET─┤  │  │         │IO│  │  │
 **Equivalência clone ↔ nice!nano:**
 | Silk clone | nice!nano silk | nRF52840 GPIO |
 |---|---|---|
-| `006` | `0` / RX | P0.06 |
-| `008` | `1` / TX | P0.08 |
+| `006` | `1` / TX | P0.06 |
+| `008` | `0` / RX | P0.08 |
 | `017` | `2` / SDA | P0.17 |
 | `020` | `3` / SCL | P0.20 |
 | `010` | `16` / MOSI | P0.10 |
@@ -136,7 +136,7 @@ NRESET─┤  │  │         │IO│  │  │
 2. Remove ou cobre a lente do PMW3610 com Kapton antes de soldar (proteção contra fluxo/sujeira).
 3. Solda os 6 fios no sensor primeiro, deixando ~7cm sobrando.
 4. Solda no header `J8` da holder: `GND`, `MOSI`, `SCLK` (3 fios). Os outros 3 pinos do header (`5V`, `CS`, `MISO`) ficam intactos.
-5. Solda os 3 jumpers diretos no nice!nano: VDDIO+VDD no mesmo pad `VCC`, NCS no `D3` (`020`), MOT no `D0` (`006`).
+5. Solda os 3 jumpers diretos no nice!nano: VDDIO+VDD no mesmo pad `VCC`, NCS no `D3` (`020`), MOT no `D1` (`006`).
 6. **Verifica com multímetro antes de energizar:**
    - Continuidade: pad `SDIO` do sensor → pad `MOSI` do header → pad `010` do nice!nano
    - Continuidade: pad `SCLK` do sensor → pad `SCLK` do header → pad `113` do nice!nano
@@ -169,7 +169,7 @@ Trocar os pinos SPI pra bater com o roteamento da holder stock:
 
 (`spi0_sleep` idem.)
 
-`cs-gpios = <&gpio0 20 GPIO_ACTIVE_LOW>` (P0.20 = D3) e `irq-gpios = <&gpio0 6 ...>` (P0.06 = D0) já estão corretos — batem com os jumpers.
+`cs-gpios = <&gpio0 20 GPIO_ACTIVE_LOW>` (P0.20 = D3) e `irq-gpios = <&gpio0 6 ...>` (P0.06 = D1/TX) já estão corretos — batem com os jumpers.
 
 ### 2.2. Reativar trackball no `charybdis_right_dongle.conf`
 
@@ -236,7 +236,8 @@ Pra acelerar só o right_dongle, comentar temporariamente os outros em `build.ya
 | Sintoma | Causa provável | Ação |
 |---|---|---|
 | Half boota mas single-tap reset monta `NICENANO` | Driver PMW3610 falhou init e crashou; bootloader Adafruit detectou loop e ficou em DFU automático | SPI sem comunicação. Multímetro: continuidade SS sensor → P0.20; SCLK sensor → P1.13; SDIO sensor → P0.10. Conferir VDDIO em 3.3V. |
-| Half pareia, teclas funcionam, trackball não responde | Init OK mas cursor não move | Verificar IRQ MOT no P0.06. Se polled mode for desejado, omitir `irq-gpios` no dtsi. |
+| Half pareia, teclas funcionam, trackball não responde | Init OK mas cursor não move | Verificar IRQ MOT no P0.06 (nice!nano silk `1`/TX; SuperMini silk `006`). Atenção: o driver 280Zo/badjeff EXIGE `irq-gpios` — não existe modo polled. |
+| Boot loga `Incorrect product id 0xff` + `initialization failed in step 2`, mas `set_performance` lê/escreve registros depois; MOT preso em ~0V | Race de power-up: LDO do módulo chinês não está pronto quando o init roda (~640ms). IRQ nunca é armada; MOT low = motion data pendente sem leitor (bug-023) | `CONFIG_PMW3610_ALT_INIT_POWER_UP_EXTRA_DELAY_MS=500` no `.conf` |
 | Cursor anda mas trêmulo / pula | Frequência SPI alta demais ou ruído | Reduzir `spi-max-frequency` pra 1000000 no dtsi. |
 | Cursor inverte ou troca eixos | Orientação do sensor no holder | Toggle `swap-xy` / `invert-x` / `invert-y` no dtsi. |
 
