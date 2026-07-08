@@ -256,3 +256,137 @@
 | 17:47 | Build right_dongle com orientação corrigida (removidos invert-x/y, mantido swap-xy) + CPI 800→400 (4m27s). build.yaml restaurado | charybdis_pmw3610.dtsi, build.yaml | ok | ~400 |
 | 17:48 | Session end: 11 writes across 3 files (charybdis_right_dongle.conf, build.yaml, charybdis_pmw3610.dtsi) | 6 reads | ~3373 tok |
 | 18:37 | Edited ../../.claude/projects/-home-bgarciamoura-projects-zmk-charybdis/memory/charybdis_hardware_setup.md | 1→2 lines | ~138 |
+| 18:42 | Edited build.yaml | modified TEMP() | ~71 |
+| 18:42 | Edited build.yaml | modified TEMP() | ~77 |
+| 18:44 | Session end: 14 writes across 4 files (charybdis_right_dongle.conf, build.yaml, charybdis_pmw3610.dtsi, charybdis_hardware_setup.md) | 6 reads | ~3669 tok |
+| 18:46 | Edited build.yaml | 5→4 lines | ~46 |
+| 18:46 | Edited build.yaml | 7→6 lines | ~52 |
+| 18:46 | Build charybdis_dongle com SSD1306 (2m13s, driver confirmado no uf2 via strings). Firmware antigo do dongle nunca teve o overlay final do OLED. Obs: builds parciais LIMPAM firmwares/ (right_dongle.uf2 sumiu de novo — full build no fim da sessão) | firmwares/, build.yaml | ok | ~300 |
+| 18:46 | Session end: 16 writes across 4 files (charybdis_right_dongle.conf, build.yaml, charybdis_pmw3610.dtsi, charybdis_hardware_setup.md) | 6 reads | ~3767 tok |
+| 23:19 | Edited boards/shields/charybdis_dongle/charybdis_dongle.overlay | modified 07() | ~297 |
+| 23:16 | Edited build.yaml | modified TEMP() | ~71 |
+| 23:16 | Edited build.yaml | modified TEMP() | ~77 |
+| 23:17 | Diagnóstico display: módulo é SH1106 mascarado de SSD1306 (estática + faixa repetitiva = frame caindo numa página só). Overlay: compatible sinowealth,sh1106 + segment-offset=2. Build dongle disparado | charybdis_dongle.overlay, buglog | ok | ~600 |
+| 23:18 | Session end: 19 writes across 5 files (charybdis_right_dongle.conf, build.yaml, charybdis_pmw3610.dtsi, charybdis_hardware_setup.md, charybdis_dongle.overlay) | 7 reads | ~5046 tok |
+| 23:26 | Edited build.yaml | 5→4 lines | ~46 |
+| 23:23 | Edited build.yaml | 7→6 lines | ~52 |
+| 23:23 | Session end: 21 writes across 5 files (charybdis_right_dongle.conf, build.yaml, charybdis_pmw3610.dtsi, charybdis_hardware_setup.md, charybdis_dongle.overlay) | 7 reads | ~5144 tok |
+| 23:30 | Session end: 21 writes across 5 files (charybdis_right_dongle.conf, build.yaml, charybdis_pmw3610.dtsi, charybdis_hardware_setup.md, charybdis_dongle.overlay) | 7 reads | ~5144 tok |
+| 23:33 | Session end: 21 writes across 5 files (charybdis_right_dongle.conf, build.yaml, charybdis_pmw3610.dtsi, charybdis_hardware_setup.md, charybdis_dongle.overlay) | 7 reads | ~5144 tok |
+| 23:35 | Session end: 21 writes across 5 files (charybdis_right_dongle.conf, build.yaml, charybdis_pmw3610.dtsi, charybdis_hardware_setup.md, charybdis_dongle.overlay) | 7 reads | ~5144 tok |
+| 23:38 | Edited boards/shields/charybdis_dongle/charybdis_dongle.overlay | modified 07() | ~170 |
+| 23:38 | Edited build.yaml | modified TEMP() | ~71 |
+| 23:38 | Edited build.yaml | modified TEMP() | ~77 |
+| 23:40 | SH1106 refutado: firmware trava boot do dongle (sem USB/LED). Overlay revertido pra ssd1306fb. Rebuild em andamento. Próximo: capturar log serial com firmware que boota | charybdis_dongle.overlay, buglog | ok | ~500 |
+| 23:40 | Session end: 24 writes across 5 files (charybdis_right_dongle.conf, build.yaml, charybdis_pmw3610.dtsi, charybdis_hardware_setup.md, charybdis_dongle.overlay) | 7 reads | ~5474 tok |
+| 23:44 | Edited build.yaml | 5→4 lines | ~46 |
+| 23:44 | Edited build.yaml | 7→6 lines | ~52 |
+| 23:44 | Session end: 26 writes across 5 files (charybdis_right_dongle.conf, build.yaml, charybdis_pmw3610.dtsi, charybdis_hardware_setup.md, charybdis_dongle.overlay) | 7 reads | ~5572 tok |
+| 23:49 | Session end: 26 writes across 5 files (charybdis_right_dongle.conf, build.yaml, charybdis_pmw3610.dtsi, charybdis_hardware_setup.md, charybdis_dongle.overlay) | 7 reads | ~5572 tok |
+| 23:52 | Session end: 26 writes across 5 files (charybdis_right_dongle.conf, build.yaml, charybdis_pmw3610.dtsi, charybdis_hardware_setup.md, charybdis_dongle.overlay) | 7 reads | ~5572 tok |
+| 23:54 | Created ../../../../mnt/c/Users/Public/dongle-capture.ps1 | — | ~386 |
+| 23:56 | Session end: 27 writes across 6 files (charybdis_right_dongle.conf, build.yaml, charybdis_pmw3610.dtsi, charybdis_hardware_setup.md, charybdis_dongle.overlay) | 7 reads | ~5985 tok |
+| 23:58 | Session end: 27 writes across 6 files (charybdis_right_dongle.conf, build.yaml, charybdis_pmw3610.dtsi, charybdis_hardware_setup.md, charybdis_dongle.overlay) | 8 reads | ~5985 tok |
+| 00:00 | Session end: 27 writes across 6 files (charybdis_right_dongle.conf, build.yaml, charybdis_pmw3610.dtsi, charybdis_hardware_setup.md, charybdis_dongle.overlay) | 8 reads | ~5985 tok |
+| 00:01 | Edited boards/shields/charybdis_dongle/charybdis_dongle.overlay | modified 08() | ~199 |
+| 00:05 | Edited build.yaml | modified TEMP() | ~71 |
+| 00:01 | Edited build.yaml | modified TEMP() | ~77 |
+| 00:03 | Diagnóstico display FECHADO por isolamento: flush LVGL trava MCU (USB morre pós-enumeração). Sem OLED = estável. Fix em teste: i2c1 nrf-twi→nrf-twim + concat-buf 1100. Build disparado | charybdis_dongle.overlay, buglog | ok | ~700 |
+| 00:03 | Session end: 30 writes across 6 files (charybdis_right_dongle.conf, build.yaml, charybdis_pmw3610.dtsi, charybdis_hardware_setup.md, charybdis_dongle.overlay) | 8 reads | ~6347 tok |
+| 00:11 | Edited build.yaml | 5→4 lines | ~46 |
+| 00:07 | Edited build.yaml | 7→6 lines | ~52 |
+| 00:07 | Session end: 32 writes across 6 files (charybdis_right_dongle.conf, build.yaml, charybdis_pmw3610.dtsi, charybdis_hardware_setup.md, charybdis_dongle.overlay) | 8 reads | ~6445 tok |
+| 00:09 | Session end: 32 writes across 6 files (charybdis_right_dongle.conf, build.yaml, charybdis_pmw3610.dtsi, charybdis_hardware_setup.md, charybdis_dongle.overlay) | 8 reads | ~6445 tok |
+| 00:10 | Session end: 32 writes across 6 files (charybdis_right_dongle.conf, build.yaml, charybdis_pmw3610.dtsi, charybdis_hardware_setup.md, charybdis_dongle.overlay) | 8 reads | ~6445 tok |
+| 00:18 | Edited boards/shields/charybdis_dongle/charybdis_dongle.overlay | modified RAIZ() | ~162 |
+| 00:18 | Edited boards/shields/charybdis_dongle/charybdis_dongle.overlay | inline fix | ~8 |
+| 00:19 | Edited boards/shields/charybdis_dongle/charybdis_dongle.conf | modified TICO() | ~149 |
+| 00:19 | Edited build.yaml | modified TEMP() | ~71 |
+| 00:23 | Edited build.yaml | modified TEMP() | ~77 |
+| 00:20 | Causa raiz display: UI na system work queue bloqueia USB/BLE (ref englmaxi/zmk-dongle-display). Fix: WORK_QUEUE_DEDICATED + stack 4096 + LV pool 16384 + VDB 100; TWIM revertido; prechargep 0x22. Build disparado | charybdis_dongle.{conf,overlay}, buglog | ok | ~800 |
+| 00:21 | Session end: 37 writes across 7 files (charybdis_right_dongle.conf, build.yaml, charybdis_pmw3610.dtsi, charybdis_hardware_setup.md, charybdis_dongle.overlay) | 9 reads | ~7161 tok |
+| 00:22 | Edited build.yaml | 5→4 lines | ~46 |
+| 00:22 | Edited build.yaml | 7→6 lines | ~52 |
+| 00:22 | Session end: 39 writes across 7 files (charybdis_right_dongle.conf, build.yaml, charybdis_pmw3610.dtsi, charybdis_hardware_setup.md, charybdis_dongle.overlay) | 9 reads | ~7259 tok |
+| 00:24 | Session end: 39 writes across 7 files (charybdis_right_dongle.conf, build.yaml, charybdis_pmw3610.dtsi, charybdis_hardware_setup.md, charybdis_dongle.overlay) | 9 reads | ~7259 tok |
+| 00:26 | Session end: 39 writes across 7 files (charybdis_right_dongle.conf, build.yaml, charybdis_pmw3610.dtsi, charybdis_hardware_setup.md, charybdis_dongle.overlay) | 9 reads | ~7259 tok |
+| 00:30 | Session end: 39 writes across 7 files (charybdis_right_dongle.conf, build.yaml, charybdis_pmw3610.dtsi, charybdis_hardware_setup.md, charybdis_dongle.overlay) | 9 reads | ~7259 tok |
+| 00:34 | Edited boards/shields/charybdis_dongle/charybdis_dongle.conf | modified BISECT() | ~128 |
+| 00:34 | Edited build.yaml | modified TEMP() | ~71 |
+| 00:34 | Edited build.yaml | modified TEMP() | ~77 |
+| 00:34 | Session end: 42 writes across 7 files (charybdis_right_dongle.conf, build.yaml, charybdis_pmw3610.dtsi, charybdis_hardware_setup.md, charybdis_dongle.overlay) | 9 reads | ~7544 tok |
+| 00:38 | Edited build.yaml | 5→4 lines | ~46 |
+| 00:38 | Edited build.yaml | 7→6 lines | ~52 |
+| 00:38 | Bisect display: multímetro provou bus saudável (SDA/SCL 3.23V idle) com dongle travado → crash de software entre criação da tela e 1º flush. Build sem widgets (layer/battery/output =n) pronto pra teste | charybdis_dongle.conf, build.yaml | ok | ~400 |
+| 00:38 | Session end: 44 writes across 7 files (charybdis_right_dongle.conf, build.yaml, charybdis_pmw3610.dtsi, charybdis_hardware_setup.md, charybdis_dongle.overlay) | 9 reads | ~7642 tok |
+| 00:41 | Edited boards/shields/charybdis_dongle/charybdis_dongle.conf | widget() → logging() | ~60 |
+| 00:41 | Edited local-build/build_setup.sh | "true" → "false" | ~28 |
+| 00:41 | Edited build.yaml | modified TEMP() | ~71 |
+| 00:41 | Edited build.yaml | modified TEMP() | ~77 |
+| 00:45 | Session end: 48 writes across 8 files (charybdis_right_dongle.conf, build.yaml, charybdis_pmw3610.dtsi, charybdis_hardware_setup.md, charybdis_dongle.overlay) | 10 reads | ~11844 tok |
+| 00:50 | Edited build.yaml | 5→4 lines | ~46 |
+| 00:54 | Edited build.yaml | 7→6 lines | ~52 |
+| 00:50 | Session end: 50 writes across 8 files (charybdis_right_dongle.conf, build.yaml, charybdis_pmw3610.dtsi, charybdis_hardware_setup.md, charybdis_dongle.overlay) | 10 reads | ~11942 tok |
+| 00:54 | Edited boards/shields/charybdis_dongle/charybdis_dongle.conf | modified FINAL() | ~93 |
+| 00:54 | Edited build.yaml | modified TEMP() | ~71 |
+| 00:54 | Edited build.yaml | modified TEMP() | ~77 |
+| 00:58 | Bisect display: widgets, USB logging, work queue, TWI/TWIM TODOS descartados. Bus idle saudável no multímetro. Último bisect firmware: ZMK_DISPLAY=n (driver init sem LVGL). Suspeita: módulo clone eletricamente patológico em bursts | charybdis_dongle.conf, buglog | ok | ~600 |
+| 00:58 | Edited build.yaml | 5→4 lines | ~46 |
+| 00:58 | Edited build.yaml | 7→6 lines | ~52 |
+| 00:58 | Session end: 55 writes across 8 files (charybdis_right_dongle.conf, build.yaml, charybdis_pmw3610.dtsi, charybdis_hardware_setup.md, charybdis_dongle.overlay) | 10 reads | ~12288 tok |
+| 01:01 | Edited boards/shields/charybdis_dongle/charybdis_dongle.overlay | modified D5() | ~525 |
+| 01:01 | Edited boards/shields/charybdis_dongle/charybdis_dongle.conf | 6→5 lines | ~46 |
+| 01:01 | Edited build.yaml | modified TEMP() | ~71 |
+| 01:01 | Edited build.yaml | modified TEMP() | ~77 |
+| 01:02 | Session end: 59 writes across 8 files (charybdis_right_dongle.conf, build.yaml, charybdis_pmw3610.dtsi, charybdis_hardware_setup.md, charybdis_dongle.overlay) | 10 reads | ~13277 tok |
+| 01:15 | Edited boards/shields/charybdis_dongle/charybdis_dongle.overlay | 5→6 lines | ~60 |
+| 01:17 | Session end: 60 writes across 8 files (charybdis_right_dongle.conf, build.yaml, charybdis_pmw3610.dtsi, charybdis_hardware_setup.md, charybdis_dongle.overlay) | 10 reads | ~13342 tok |
+| 01:20 | Session end: 60 writes across 8 files (charybdis_right_dongle.conf, build.yaml, charybdis_pmw3610.dtsi, charybdis_hardware_setup.md, charybdis_dongle.overlay) | 10 reads | ~13342 tok |
+| 01:24 | Session end: 60 writes across 8 files (charybdis_right_dongle.conf, build.yaml, charybdis_pmw3610.dtsi, charybdis_hardware_setup.md, charybdis_dongle.overlay) | 10 reads | ~13342 tok |
+| 01:25 | Session end: 60 writes across 8 files (charybdis_right_dongle.conf, build.yaml, charybdis_pmw3610.dtsi, charybdis_hardware_setup.md, charybdis_dongle.overlay) | 10 reads | ~13342 tok |
+| 01:25 | Session end: 60 writes across 8 files (charybdis_right_dongle.conf, build.yaml, charybdis_pmw3610.dtsi, charybdis_hardware_setup.md, charybdis_dongle.overlay) | 10 reads | ~13342 tok |
+| 01:25 | Session end: 60 writes across 8 files (charybdis_right_dongle.conf, build.yaml, charybdis_pmw3610.dtsi, charybdis_hardware_setup.md, charybdis_dongle.overlay) | 10 reads | ~13342 tok |
+| 01:26 | Session end: 60 writes across 8 files (charybdis_right_dongle.conf, build.yaml, charybdis_pmw3610.dtsi, charybdis_hardware_setup.md, charybdis_dongle.overlay) | 10 reads | ~13342 tok |
+| 01:26 | Session end: 60 writes across 8 files (charybdis_right_dongle.conf, build.yaml, charybdis_pmw3610.dtsi, charybdis_hardware_setup.md, charybdis_dongle.overlay) | 10 reads | ~13342 tok |
+| 01:26 | Session end: 60 writes across 8 files (charybdis_right_dongle.conf, build.yaml, charybdis_pmw3610.dtsi, charybdis_hardware_setup.md, charybdis_dongle.overlay) | 10 reads | ~13342 tok |
+| 01:26 | Session end: 60 writes across 8 files (charybdis_right_dongle.conf, build.yaml, charybdis_pmw3610.dtsi, charybdis_hardware_setup.md, charybdis_dongle.overlay) | 10 reads | ~13342 tok |
+| 01:26 | Session end: 60 writes across 8 files (charybdis_right_dongle.conf, build.yaml, charybdis_pmw3610.dtsi, charybdis_hardware_setup.md, charybdis_dongle.overlay) | 10 reads | ~13342 tok |
+| 01:26 | Session end: 60 writes across 8 files (charybdis_right_dongle.conf, build.yaml, charybdis_pmw3610.dtsi, charybdis_hardware_setup.md, charybdis_dongle.overlay) | 10 reads | ~13342 tok |
+| 01:27 | Session end: 60 writes across 8 files (charybdis_right_dongle.conf, build.yaml, charybdis_pmw3610.dtsi, charybdis_hardware_setup.md, charybdis_dongle.overlay) | 10 reads | ~13342 tok |
+| 01:27 | Session end: 60 writes across 8 files (charybdis_right_dongle.conf, build.yaml, charybdis_pmw3610.dtsi, charybdis_hardware_setup.md, charybdis_dongle.overlay) | 10 reads | ~13342 tok |
+| 01:27 | Session end: 60 writes across 8 files (charybdis_right_dongle.conf, build.yaml, charybdis_pmw3610.dtsi, charybdis_hardware_setup.md, charybdis_dongle.overlay) | 10 reads | ~13342 tok |
+| 01:27 | Session end: 60 writes across 8 files (charybdis_right_dongle.conf, build.yaml, charybdis_pmw3610.dtsi, charybdis_hardware_setup.md, charybdis_dongle.overlay) | 10 reads | ~13342 tok |
+| 01:27 | Session end: 60 writes across 8 files (charybdis_right_dongle.conf, build.yaml, charybdis_pmw3610.dtsi, charybdis_hardware_setup.md, charybdis_dongle.overlay) | 10 reads | ~13342 tok |
+| 01:27 | Session end: 60 writes across 8 files (charybdis_right_dongle.conf, build.yaml, charybdis_pmw3610.dtsi, charybdis_hardware_setup.md, charybdis_dongle.overlay) | 10 reads | ~13342 tok |
+| 01:28 | Session end: 60 writes across 8 files (charybdis_right_dongle.conf, build.yaml, charybdis_pmw3610.dtsi, charybdis_hardware_setup.md, charybdis_dongle.overlay) | 10 reads | ~13342 tok |
+| 01:28 | Session end: 60 writes across 8 files (charybdis_right_dongle.conf, build.yaml, charybdis_pmw3610.dtsi, charybdis_hardware_setup.md, charybdis_dongle.overlay) | 10 reads | ~13342 tok |
+| 01:28 | Session end: 60 writes across 8 files (charybdis_right_dongle.conf, build.yaml, charybdis_pmw3610.dtsi, charybdis_hardware_setup.md, charybdis_dongle.overlay) | 10 reads | ~13342 tok |
+| 01:28 | Edited build.yaml | 5→4 lines | ~46 |
+| 01:28 | Edited build.yaml | 7→6 lines | ~52 |
+| 01:29 | Session end: 62 writes across 8 files (charybdis_right_dongle.conf, build.yaml, charybdis_pmw3610.dtsi, charybdis_hardware_setup.md, charybdis_dongle.overlay) | 10 reads | ~13440 tok |
+| 10:23 | Edited boards/shields/charybdis_dongle/charybdis_dongle.conf | modified BISECT() | ~114 |
+| 10:23 | Edited build.yaml | modified TEMP() | ~71 |
+| 10:27 | Edited build.yaml | modified TEMP() | ~77 |
+| 10:26 | Bisect display continua: bitbang gpio-i2c TAMBÉM trava (periférico I2C inocentado!). ZMK upstream 29/06 confirmado. Prospector excluído do build (sem sources). Novo bisect: STATUS_SCREEN_CUSTOM=y sem impl → isola tema/fontes vs render/flush | charybdis_dongle.conf, overlay | ok | ~500 |
+| 10:27 | Session end: 65 writes across 8 files (charybdis_right_dongle.conf, build.yaml, charybdis_pmw3610.dtsi, charybdis_hardware_setup.md, charybdis_dongle.overlay) | 10 reads | ~13710 tok |
+| 10:31 | Edited build.yaml | 5→4 lines | ~46 |
+| 10:31 | Edited build.yaml | 7→6 lines | ~52 |
+| 10:31 | Session end: 67 writes across 8 files (charybdis_right_dongle.conf, build.yaml, charybdis_pmw3610.dtsi, charybdis_hardware_setup.md, charybdis_dongle.overlay) | 10 reads | ~13808 tok |
+| 11:18 | Edited boards/shields/charybdis_dongle/charybdis_dongle.conf | modified FINAL() | ~97 |
+| 11:18 | Edited build.yaml | modified TEMP() | ~71 |
+| 11:18 | Edited build.yaml | modified TEMP() | ~77 |
+| 11:20 | Bisect final: tema inocente (custom-null screen sobrevive). Crash = render/flush. Delta final vs referência: LV_COLOR_DEPTH_1 + BITS_PER_PIXEL=1 (16bpp em glue mono = overflow). Build 1bpp disparado | charybdis_dongle.conf, buglog | ok | ~500 |
+| 11:20 | Session end: 70 writes across 8 files (charybdis_right_dongle.conf, build.yaml, charybdis_pmw3610.dtsi, charybdis_hardware_setup.md, charybdis_dongle.overlay) | 10 reads | ~14060 tok |
+| 11:26 | Edited build.yaml | 5→4 lines | ~46 |
+| 11:26 | Edited build.yaml | 7→6 lines | ~52 |
+| 11:26 | Session end: 72 writes across 8 files (charybdis_right_dongle.conf, build.yaml, charybdis_pmw3610.dtsi, charybdis_hardware_setup.md, charybdis_dongle.overlay) | 10 reads | ~14158 tok |
+| 11:58 | 🏆 BUG-024 RESOLVIDO: LV_COLOR_DEPTH_1 + BITS_PER_PIXEL=1. Widgets na tela + teclado funcionando. Display e módulo inocentes o tempo todo | charybdis_dongle.conf, buglog, cerebrum | ok | ~1k |
+| 12:00 | Edited boards/shields/charybdis_dongle/charybdis_dongle.overlay | modified BLE() | ~309 |
+| 12:00 | Edited boards/shields/charybdis_dongle/charybdis_dongle.conf | 4→2 lines | ~18 |
+| 12:00 | Edited boards/shields/charybdis_dongle/charybdis_dongle.conf | 5→3 lines | ~35 |
+| 12:00 | Edited boards/shields/charybdis_right_dongle/charybdis_right_dongle.conf | inline fix | ~10 |
+| 12:02 | Edited ../../.claude/projects/-home-bgarciamoura-projects-zmk-charybdis/memory/charybdis_hardware_setup.md | inline fix | ~119 |
+| 12:02 | Edited ../../.claude/projects/-home-bgarciamoura-projects-zmk-charybdis/memory/charybdis_hardware_setup.md | modified FICAM() | ~142 |
+| 12:02 | Edited ../../.claude/projects/-home-bgarciamoura-projects-zmk-charybdis/memory/MEMORY.md | inline fix | ~76 |
+| 12:03 | Session end: 79 writes across 9 files (charybdis_right_dongle.conf, build.yaml, charybdis_pmw3610.dtsi, charybdis_hardware_setup.md, charybdis_dongle.overlay) | 11 reads | ~14917 tok |
+| 12:25 | Session end: 79 writes across 9 files (charybdis_right_dongle.conf, build.yaml, charybdis_pmw3610.dtsi, charybdis_hardware_setup.md, charybdis_dongle.overlay) | 11 reads | ~14917 tok |

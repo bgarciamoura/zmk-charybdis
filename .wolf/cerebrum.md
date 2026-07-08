@@ -320,6 +320,44 @@ O LDO onboard do módulo faz o sensor demorar mais pra acordar do que o driver e
 
 **Nota driver:** o `280Zo/badjeff zmk-pmw3610-driver` EXIGE `irq-gpios` (`GPIO_DT_SPEC_INST_GET`, sem fallback) — não existe modo polled. Interrupção é `GPIO_INT_LEVEL_ACTIVE` (level, não edge), então MOT já-asserted no arm dispararia normalmente — o problema era só o init nunca chegar lá.
 
+### SSD1306/OLED em dongle ZMK — receita completa e assinatura de crash (2026-07-08, bug-024 RESOLVIDO)
+
+**Config funcional completa** (charybdis_dongle.conf, validada em hardware):
+```
+CONFIG_ZMK_DISPLAY=y
+CONFIG_ZMK_DISPLAY_BLANK_ON_IDLE=n
+CONFIG_ZMK_DISPLAY_WORK_QUEUE_DEDICATED=y
+CONFIG_ZMK_DISPLAY_DEDICATED_THREAD_STACK_SIZE=4096
+CONFIG_LV_Z_MEM_POOL_SIZE=16384
+CONFIG_LV_Z_VDB_SIZE=100
+CONFIG_LV_COLOR_DEPTH_1=y      # ← O FIX. Sem isso: hard fault no 1º render
+CONFIG_LV_Z_BITS_PER_PIXEL=1   # ← idem
+CONFIG_LV_DPI_DEF=148
+```
+
+**Assinatura do crash por LV_COLOR_DEPTH errado (16bpp em display mono):**
+- Display init passa (charge pump liga → tela mostra ESTÁTICA de power-on)
+- Estática NUNCA é substituída (nenhum frame chega)
+- MCU inteiro morre: hard fault → arch_system_halt → IRQs off
+- Windows: "Dispositivo USB Desconhecido (Falha na Solicitação de Descritor)"
+- Teclado morto, USB morto, mas barramento I2C mede saudável (idle high)
+- INDEPENDE do transporte I2C (TWI, TWIM, gpio-i2c bitbang — todos "travam")
+
+**Como foi isolado (ordem da bisseção, reusável):**
+1. Sem OLED conectado → estável (init falha limpo, LVGL nunca engaja)
+2. ZMK_DISPLAY=n com OLED → estável (driver init ok, LVGL não roda)
+3. Widgets todos =n → ainda trava (widgets inocentes)
+4. STATUS_SCREEN_CUSTOM=y sem impl → sobrevive (tema/fontes inocentes; para antes do render)
+5. → crash está no render/flush → color depth era o único delta vs referência
+
+**Referência de ouro pra dongle display ZMK:** englmaxi/zmk-dongle-display (Kconfig.defconfig tem a receita LVGL) + englmaxi/zmk-config (overlays sweep_dongle etc).
+
+**Truques de debug descobertos:**
+- Ler COM do Windows a partir do WSL: powershell.exe + System.IO.Ports.SerialPort (script em C:\Users\Public\dongle-capture.ps1 — vigia que espera a COM nascer e captura até a morte)
+- Scan USB: Get-CimInstance Win32_PnPEntity filtrando VID_1D50 (ZMK) e Status -ne 'OK'
+- "Falha na Solicitação de Descritor" = CPU não responde = hard fault/halt, NÃO problema de cabo/driver
+- gpio-i2c bitbang (compatible "gpio-i2c" + clock-frequency obrigatório + sda/scl-gpios OPEN_DRAIN) = alternativa que elimina o periférico I2C do nRF como variável
+
 ## Do-Not-Repeat
 
 <!-- Mistakes made and corrected. Each entry prevents the same mistake recurring. -->
@@ -338,6 +376,10 @@ O LDO onboard do módulo faz o sensor demorar mais pra acordar do que o driver e
 
 - [2026-07-07] **TRACKBALL_PMW3610.md tinha rótulos de pino errados** (corrigidos): tabela dizia MOT → "D0 (silk 0/RX1/006)" mas **P0.06 = D1/TX** no nice!nano (D0/RX = P0.08); e o diagrama ASCII do SuperMini mostrava 008 acima de 006 quando a ordem real (foto 2026-05-18) é **006 acima de 008**. Ao gerar guias de pinout, sempre cross-checar rótulo Arduino ↔ GPIO contra a tabela verificada em nrf52840_supermini_pinout.md. Rótulo e GPIO na mesma célula DEVEM ser validados um contra o outro.
 - [2026-07-07] **"Incorrect product id 0xff" no boot + SPI funcionando depois ≠ fiação ruim** — é race de power-up (ver Key Learnings bug-023). Não mandar o usuário re-soldar antes de checar essa assinatura no log.
+
+- [2026-07-08] **Display mono no Zephyr/ZMK: SEMPRE setar CONFIG_LV_COLOR_DEPTH_1=y + CONFIG_LV_Z_BITS_PER_PIXEL=1.** O default 16bpp causa overflow no render → hard fault que mata o MCU inteiro (assinatura: USB "descriptor request failed", tela com estática eterna). Custou ~8 builds de bisseção. Ao integrar display novo, COMEÇAR copiando a config de uma referência battle-tested completa (englmaxi/zmk-dongle-display), não incrementalmente.
+- [2026-07-08] **"Sem display conectado = estável" NÃO prova culpa do módulo físico** — init falho faz o ZMK pular o LVGL inteiro, mascarando bugs de software do caminho de render. Pra isolar de verdade: ZMK_DISPLAY=n (driver sem LVGL) e STATUS_SCREEN_CUSTOM=y sem impl (tema sem render).
+- [2026-07-08] **pkill -f "docker-compose run" pode matar o próprio comando composto** (exit 144) e deixar fetch do west travado. Matar container por ID (docker rm -f <id>) e relançar limpo.
 
 ## Decision Log
 
