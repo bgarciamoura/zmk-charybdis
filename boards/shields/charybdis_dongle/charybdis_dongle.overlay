@@ -68,12 +68,18 @@
     };
 };
 
-/* I2C1 on XIAO BLE = D4 (SDA, P0.04) / D5 (SCL, P0.05).
-   SSD1306 0.96" 128x64 OLED wired here:
-     VCC -> 3V3, GND -> GND, SDA -> D4 (P4), SCL -> D5 (P5).
-   Bus stays at the 100kHz default — 400kHz over jumper wires is unreliable.
-   prechargep=0xF1 matches the internal charge-pump path (3.3V VCC).
-   ready-time-ms bumped to 50 to absorb charge-pump inrush during boot. */
+/* OLED SSD1306 0.96" 128x64 no i2c1 do XIAO BLE (D4=SDA/P0.04, D5=SCL/P0.05):
+     VCC -> 3V3, GND -> GND, SDA -> D4, SCL -> D5. Addr 0x3C.
+   Bus a 100kHz (default) — 400kHz sobre jumper wires fazia o init falhar.
+   ready-time-ms=50 absorve o inrush do charge pump no boot.
+
+   ⚠ HISTÓRICO (bug-024/025 no buglog): o display SÓ funciona com
+   CONFIG_LV_COLOR_DEPTH_1 + CONFIG_LV_Z_BITS_PER_PIXEL=1 no .conf.
+   Sem isso, o LVGL renderiza 16bpp num glue mono de 1bpp → overflow →
+   hard fault → MCU inteiro congela (USB nem responde descriptor, teclado
+   morre) e a tela fica em "estática" eterna. NÃO é problema do módulo,
+   da fiação, nem do periférico I2C — bisseção completa documentada no
+   buglog. Receita LVGL completa: ver seção Display no .conf. */
 &i2c1 {
     status = "okay";
 
@@ -86,7 +92,7 @@
         page-offset = <0>;
         display-offset = <0>;
         multiplex-ratio = <63>;
-        prechargep = <0xF1>;
+        prechargep = <0x22>;
         ready-time-ms = <50>;
         segment-remap;
         com-invdir;
