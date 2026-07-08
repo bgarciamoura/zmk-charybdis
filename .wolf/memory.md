@@ -414,3 +414,18 @@
 | 13:05 | Session end: 90 writes across 10 files (charybdis_right_dongle.conf, build.yaml, charybdis_pmw3610.dtsi, charybdis_hardware_setup.md, charybdis_dongle.overlay) | 12 reads | ~21293 tok |
 | 13:08 | Keymap Vial validado pelo usuário (thumbs corrigidos: BSPC/L2, SPC/L1, LCLK | DEL/L1, RET/L2). Build final da matriz completa disparado; commit+push na sequência | config/keymaps/qwerty.keymap | ok | ~300 |
 | 13:08 | Session end: 90 writes across 10 files (charybdis_right_dongle.conf, build.yaml, charybdis_pmw3610.dtsi, charybdis_hardware_setup.md, charybdis_dongle.overlay) | 12 reads | ~21293 tok |
+| 13:17 | Session end: 90 writes across 10 files (charybdis_right_dongle.conf, build.yaml, charybdis_pmw3610.dtsi, charybdis_hardware_setup.md, charybdis_dongle.overlay) | 12 reads | ~21293 tok |
+
+## Session: 2026-07-08 13:44
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+| 13:56 | Edited boards/shields/charybdis_dongle/charybdis_dongle.conf | modified boot() | ~161 |
+| 13:57 | Diagnóstico: OLED não atualiza camada em hold — hipótese flush parcial desalinhado no ssd1306; add CONFIG_LV_Z_FULL_REFRESH=y + build teste | charybdis_dongle.conf, .wolf/buglog.json | build em andamento | ~15k |
+| 13:58 | Session end: 1 writes across 1 files (charybdis_dongle.conf) | 6 reads | ~6817 tok |
+| 16:06 | Build teste OK (10m39s): dongle c/ LV_Z_FULL_REFRESH + halves + settings_reset | firmwares/dongle_standard_xiao/qwerty/*.uf2 | sucesso — aguardando flash do usuário | ~2k |
+| 16:06 | Session end: 1 writes across 1 files (charybdis_dongle.conf) | 6 reads | ~6817 tok |
+| 16:53 | Usuário flashou o dongle: camada atualiza no hold — bug-056 CONFIRMADO/RESOLVIDO (LV_Z_FULL_REFRESH) | .wolf/buglog.json, .wolf/cerebrum.md | sucesso | ~1k |
+| 16:53 | Edited ../../.claude/projects/-home-bgarciamoura-projects-zmk-charybdis/memory/charybdis_hardware_setup.md | inline fix | ~109 |
+| 16:53 | Edited ../../.claude/projects/-home-bgarciamoura-projects-zmk-charybdis/memory/MEMORY.md | inline fix | ~47 |
+| 16:54 | Session end: 3 writes across 3 files (charybdis_dongle.conf, charybdis_hardware_setup.md, MEMORY.md) | 8 reads | ~6984 tok |

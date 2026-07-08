@@ -357,6 +357,7 @@ CONFIG_LV_DPI_DEF=148
 - Scan USB: Get-CimInstance Win32_PnPEntity filtrando VID_1D50 (ZMK) e Status -ne 'OK'
 - "Falha na Solicitação de Descritor" = CPU não responde = hard fault/halt, NÃO problema de cabo/driver
 - gpio-i2c bitbang (compatible "gpio-i2c" + clock-frequency obrigatório + sda/scl-gpios OPEN_DRAIN) = alternativa que elimina o periférico I2C do nRF como variável
+- Display mono SSD1306 no ZMK main (Zephyr 4.1/LVGL 9) precisa de `CONFIG_LV_Z_FULL_REFRESH=y` além da receita 1bpp (bug-024): o driver ssd1306 rejeita flush com Y não múltiplo de 8 ("Unsupported origin"), então refresh parcial = widgets congelados pós-boot (camada não atualiza). Confirmado 2026-07-08 (bug-056).
 
 ## Do-Not-Repeat
 

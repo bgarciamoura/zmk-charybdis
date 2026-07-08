@@ -951,6 +951,29 @@
       "related_bugs": [],
       "occurrences": 1,
       "last_seen": "2026-07-08T00:00:00Z"
+    },
+    {
+      "id": "bug-056",
+      "timestamp": "2026-07-08T00:00:00Z",
+      "error_message": "OLED do dongle nao atualiza o widget de camada ao segurar tecla de layer (&lt/&mo) — tela fica no estado renderizado no boot",
+      "file": "boards/shields/charybdis_dongle/charybdis_dongle.conf",
+      "root_cause": "CONFIRMADA 2026-07-08: driver ssd1306 do Zephyr 4.1 rejeita write com y % 8 != 0 ('Unsupported origin'); refresh parcial do LVGL 9 flusha so o retangulo invalidado do label de camada, desalinhado a pagina do SSD1306 -> write descartado silenciosamente. Render de boot e full-screen (alinhado), por isso funciona. Mesma classe do bug-024 (mismatch entre pipeline LVGL e glue mono 1bpp). Widget upstream (layer_status.c) esta correto: assina zmk_layer_state_changed, que dispara em camada momentanea tambem.",
+      "fix": "RESOLVIDO E CONFIRMADO 2026-07-08 (flash + teste do usuario): CONFIG_LV_Z_FULL_REFRESH=y no charybdis_dongle.conf — forca flush do frame inteiro (sempre alinhado a pagina do SSD1306). Custo ~1KB por flush @ I2C 100kHz ~85ms, aceitavel.",
+      "tags": [
+        "zmk",
+        "display",
+        "ssd1306",
+        "lvgl",
+        "partial-refresh",
+        "layer-widget",
+        "dongle",
+        "zephyr-4.1"
+      ],
+      "related_bugs": [
+        "bug-024"
+      ],
+      "occurrences": 1,
+      "last_seen": "2026-07-08T00:00:00Z"
     }
   ]
 }

@@ -1,6 +1,6 @@
 # anatomy.md
 
-> Auto-maintained by OpenWolf. Last scanned: 2026-07-08T16:06:08.233Z
+> Auto-maintained by OpenWolf. Last scanned: 2026-07-08T19:53:56.390Z
 > Files: 89 tracked | Anatomy hits: 0 | Misses: 0
 
 ## ../../../../mnt/c/Users/Public/
@@ -18,8 +18,8 @@
 
 ## ../../.claude/projects/-home-bgarciamoura-projects-zmk-charybdis/memory/
 
-- `charybdis_hardware_setup.md` — Composição da montagem (~1231 tok)
-- `MEMORY.md` — Memory Index (~230 tok)
+- `charybdis_hardware_setup.md` — Composição da montagem (~1312 tok)
+- `MEMORY.md` — Memory Index (~247 tok)
 - `nrf52840_supermini_pinout.md` — Identificação (~1579 tok)
 - `zmk_pmw3360_modules.md` (~476 tok)
 - `zmk_split_ble_findings.md` — Como ZMK split realmente pareia (~842 tok)
@@ -56,7 +56,7 @@
 
 ## boards/shields/charybdis_dongle/
 
-- `charybdis_dongle.conf` — # Split keyboards (~469 tok)
+- `charybdis_dongle.conf` — # Split keyboards (~590 tok)
 - `charybdis_dongle.overlay` — Documentation: https://zmk.dev/docs/development/hardware-integration/dongle (~915 tok)
 - `Kconfig.defconfig` (~15 tok)
 - `Kconfig.shield` (~22 tok)
