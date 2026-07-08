@@ -916,6 +916,41 @@
       "related_bugs": [],
       "occurrences": 1,
       "last_seen": "2026-07-08T15:00:11.766Z"
+    },
+    {
+      "id": "bug-055",
+      "timestamp": "2026-07-08T15:49:35.660Z",
+      "error_message": "Significant refactor of ",
+      "file": "build.yaml",
+      "root_cause": "3 lines replaced/restructured",
+      "fix": "Rewrote 4→5 lines (3 removed) | Also: - shield: charybdis_left_dongle; board: nice_nano//zmk | Also: # TEMP (2026-07-08): comentado pra rebuild rápido ; #  - name: settings_reset | Also: # TEMP (2026-07-08): halves comentadas pra rebuild; #      - shield: charybdis_left_dongle",
+      "tags": [
+        "auto-detected",
+        "refactor",
+        "yaml"
+      ],
+      "related_bugs": [],
+      "occurrences": 4,
+      "last_seen": "2026-07-08T15:53:30.432Z"
+    },
+    {
+      "id": "bug-026",
+      "timestamp": "2026-07-08T00:00:00Z",
+      "error_message": "Trackball 'trava' o cursor no canto superior esquerdo da tela (fluxo continuo de deltas negativos) apos reflash/reboot do dongle.",
+      "file": "—",
+      "root_cause": "Estado transiente do lado peripheral: a half direita estava streamando motion quando o dongle rebootou (flash); ao reconectar o split BLE, o stream de input-split ficou com delta preso/repetindo. Nao e bug de keymap nem de config — coincidiu com o flash do keymap novo mas o mecanismo e o reconnect do split com sensor em movimento.",
+      "fix": "Power cycle da half direita (desligar/ligar a chave). 5 segundos. Se recorrer com frequencia apos todo reflash do dongle, investigar o buffer do input-split no reconnect.",
+      "tags": [
+        "zmk",
+        "trackball",
+        "input-split",
+        "ble-reconnect",
+        "transient",
+        "cursor-canto"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-07-08T00:00:00Z"
     }
   ]
 }

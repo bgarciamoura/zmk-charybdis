@@ -1,6 +1,6 @@
 # anatomy.md
 
-> Auto-maintained by OpenWolf. Last scanned: 2026-07-08T15:02:53.322Z
+> Auto-maintained by OpenWolf. Last scanned: 2026-07-08T16:06:08.233Z
 > Files: 89 tracked | Anatomy hits: 0 | Misses: 0
 
 ## ../../../../mnt/c/Users/Public/
@@ -147,7 +147,7 @@
 - `colemak_dh.keymap` — include <behaviors.dtsi> (~2299 tok)
 - `focal.keymap` — include <behaviors.dtsi> (~2299 tok)
 - `graphite.keymap` — include <behaviors.dtsi> (~2299 tok)
-- `qwerty.keymap` — include <behaviors.dtsi> (~2301 tok)
+- `qwerty.keymap` — include <behaviors.dtsi> (~3411 tok)
 
 ## config/trackball/
 

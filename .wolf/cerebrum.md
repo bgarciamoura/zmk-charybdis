@@ -381,6 +381,8 @@ CONFIG_LV_DPI_DEF=148
 - [2026-07-08] **"Sem display conectado = estável" NÃO prova culpa do módulo físico** — init falho faz o ZMK pular o LVGL inteiro, mascarando bugs de software do caminho de render. Pra isolar de verdade: ZMK_DISPLAY=n (driver sem LVGL) e STATUS_SCREEN_CUSTOM=y sem impl (tema sem render).
 - [2026-07-08] **pkill -f "docker-compose run" pode matar o próprio comando composto** (exit 144) e deixar fetch do west travado. Matar container por ID (docker rm -f <id>) e relançar limpo.
 
+- [2026-07-08] **Decodificação de thumbs em .vil (Vial/QMK Charybdis):** a linha de thumb do lado ESQUERDO tem entradas nos índices 1,3,4 — a ordem FÍSICA (esq→dir) é **idx3, idx4, idx1** (o índice 1 é a tecla mais à DIREITA do cluster, não a primeira). Lado direito: índices 1,3 → ordem física **idx1, idx3**. Errei assumindo ordem de leitura direta; usuário corrigiu: BSPC/L2, SPACE/L1, LCLK | DEL/L1, RET/L2.
+
 ## Decision Log
 
 <!-- Significant technical decisions with rationale. Why X was chosen over Y. -->

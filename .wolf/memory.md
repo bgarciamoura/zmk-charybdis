@@ -390,3 +390,27 @@
 | 12:02 | Edited ../../.claude/projects/-home-bgarciamoura-projects-zmk-charybdis/memory/MEMORY.md | inline fix | ~76 |
 | 12:03 | Session end: 79 writes across 9 files (charybdis_right_dongle.conf, build.yaml, charybdis_pmw3610.dtsi, charybdis_hardware_setup.md, charybdis_dongle.overlay) | 11 reads | ~14917 tok |
 | 12:25 | Session end: 79 writes across 9 files (charybdis_right_dongle.conf, build.yaml, charybdis_pmw3610.dtsi, charybdis_hardware_setup.md, charybdis_dongle.overlay) | 11 reads | ~14917 tok |
+| 12:33 | SESSÃO ENCERRADA COM SUCESSO TOTAL: trackball (bug-023) + display (bug-024/025) resolvidos e validados. 3 commits pushados (ad66393, 50995ac, 0e1c92c). Matriz completa buildada limpa | tudo | 🏆 | ~500 |
+| 12:33 | Session end: 79 writes across 9 files (charybdis_right_dongle.conf, build.yaml, charybdis_pmw3610.dtsi, charybdis_hardware_setup.md, charybdis_dongle.overlay) | 11 reads | ~14917 tok |
+| 12:35 | Session end: 79 writes across 9 files (charybdis_right_dongle.conf, build.yaml, charybdis_pmw3610.dtsi, charybdis_hardware_setup.md, charybdis_dongle.overlay) | 11 reads | ~14917 tok |
+| 12:39 | Session end: 79 writes across 9 files (charybdis_right_dongle.conf, build.yaml, charybdis_pmw3610.dtsi, charybdis_hardware_setup.md, charybdis_dongle.overlay) | 11 reads | ~14917 tok |
+| 12:40 | Session end: 79 writes across 9 files (charybdis_right_dongle.conf, build.yaml, charybdis_pmw3610.dtsi, charybdis_hardware_setup.md, charybdis_dongle.overlay) | 11 reads | ~14917 tok |
+| 12:49 | Created config/keymaps/qwerty.keymap | — | ~3412 |
+| 12:49 | Edited build.yaml | modified TEMP() | ~71 |
+| 12:49 | Edited build.yaml | modified TEMP() | ~77 |
+| 12:51 | Session end: 82 writes across 10 files (charybdis_right_dongle.conf, build.yaml, charybdis_pmw3610.dtsi, charybdis_hardware_setup.md, charybdis_dongle.overlay) | 12 reads | ~21022 tok |
+| 12:53 | Edited build.yaml | 5→4 lines | ~46 |
+| 12:53 | Edited build.yaml | 7→6 lines | ~52 |
+| 12:57 | Keymap do Vial (Charybdis_vial_0.5.vil) portado pro qwerty.keymap: 6 camadas 1:1, HRM em S-G/H-;, macros→LC(LS()), USER→tog 6/7, SLOW/SCROLL preservadas. Build dongle OK | config/keymaps/qwerty.keymap, build.yaml | ok | ~2k |
+| 12:54 | Session end: 84 writes across 10 files (charybdis_right_dongle.conf, build.yaml, charybdis_pmw3610.dtsi, charybdis_hardware_setup.md, charybdis_dongle.overlay) | 12 reads | ~21120 tok |
+| 12:59 | Session end: 84 writes across 10 files (charybdis_right_dongle.conf, build.yaml, charybdis_pmw3610.dtsi, charybdis_hardware_setup.md, charybdis_dongle.overlay) | 12 reads | ~21120 tok |
+| 13:02 | Edited config/keymaps/qwerty.keymap | inline fix | ~38 |
+| 13:02 | Edited config/keymaps/qwerty.keymap | inline fix | ~27 |
+| 13:02 | Edited config/keymaps/qwerty.keymap | inline fix | ~26 |
+| 13:02 | Edited config/keymaps/qwerty.keymap | inline fix | ~23 |
+| 13:02 | Edited config/keymaps/qwerty.keymap | inline fix | ~25 |
+| 13:06 | Edited config/keymaps/qwerty.keymap | inline fix | ~25 |
+| 13:03 | Session end: 90 writes across 10 files (charybdis_right_dongle.conf, build.yaml, charybdis_pmw3610.dtsi, charybdis_hardware_setup.md, charybdis_dongle.overlay) | 12 reads | ~21293 tok |
+| 13:05 | Session end: 90 writes across 10 files (charybdis_right_dongle.conf, build.yaml, charybdis_pmw3610.dtsi, charybdis_hardware_setup.md, charybdis_dongle.overlay) | 12 reads | ~21293 tok |
+| 13:08 | Keymap Vial validado pelo usuário (thumbs corrigidos: BSPC/L2, SPC/L1, LCLK | DEL/L1, RET/L2). Build final da matriz completa disparado; commit+push na sequência | config/keymaps/qwerty.keymap | ok | ~300 |
+| 13:08 | Session end: 90 writes across 10 files (charybdis_right_dongle.conf, build.yaml, charybdis_pmw3610.dtsi, charybdis_hardware_setup.md, charybdis_dongle.overlay) | 12 reads | ~21293 tok |

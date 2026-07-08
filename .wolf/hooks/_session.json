@@ -56,6 +56,11 @@
       "count": 1,
       "tokens": 0,
       "first_read": "2026-07-08T15:02:43.219Z"
+    },
+    "/home/bgarciamoura/projects/zmk-charybdis/config/keymaps/qwerty.keymap": {
+      "count": 1,
+      "tokens": 2301,
+      "first_read": "2026-07-08T15:47:57.802Z"
     }
   },
   "files_written": [
@@ -532,22 +537,89 @@
       "action": "edit",
       "tokens": 81,
       "at": "2026-07-08T15:02:53.335Z"
+    },
+    {
+      "file": "/home/bgarciamoura/projects/zmk-charybdis/config/keymaps/qwerty.keymap",
+      "action": "create",
+      "tokens": 3656,
+      "at": "2026-07-08T15:49:23.078Z"
+    },
+    {
+      "file": "/home/bgarciamoura/projects/zmk-charybdis/build.yaml",
+      "action": "edit",
+      "tokens": 71,
+      "at": "2026-07-08T15:49:35.657Z"
+    },
+    {
+      "file": "/home/bgarciamoura/projects/zmk-charybdis/build.yaml",
+      "action": "edit",
+      "tokens": 77,
+      "at": "2026-07-08T15:49:38.072Z"
+    },
+    {
+      "file": "/home/bgarciamoura/projects/zmk-charybdis/build.yaml",
+      "action": "edit",
+      "tokens": 46,
+      "at": "2026-07-08T15:53:27.703Z"
+    },
+    {
+      "file": "/home/bgarciamoura/projects/zmk-charybdis/build.yaml",
+      "action": "edit",
+      "tokens": 52,
+      "at": "2026-07-08T15:53:30.428Z"
+    },
+    {
+      "file": "/home/bgarciamoura/projects/zmk-charybdis/config/keymaps/qwerty.keymap",
+      "action": "edit",
+      "tokens": 41,
+      "at": "2026-07-08T16:02:22.102Z"
+    },
+    {
+      "file": "/home/bgarciamoura/projects/zmk-charybdis/config/keymaps/qwerty.keymap",
+      "action": "edit",
+      "tokens": 28,
+      "at": "2026-07-08T16:02:23.965Z"
+    },
+    {
+      "file": "/home/bgarciamoura/projects/zmk-charybdis/config/keymaps/qwerty.keymap",
+      "action": "edit",
+      "tokens": 28,
+      "at": "2026-07-08T16:02:25.942Z"
+    },
+    {
+      "file": "/home/bgarciamoura/projects/zmk-charybdis/config/keymaps/qwerty.keymap",
+      "action": "edit",
+      "tokens": 24,
+      "at": "2026-07-08T16:02:27.743Z"
+    },
+    {
+      "file": "/home/bgarciamoura/projects/zmk-charybdis/config/keymaps/qwerty.keymap",
+      "action": "edit",
+      "tokens": 26,
+      "at": "2026-07-08T16:02:29.626Z"
+    },
+    {
+      "file": "/home/bgarciamoura/projects/zmk-charybdis/config/keymaps/qwerty.keymap",
+      "action": "edit",
+      "tokens": 26,
+      "at": "2026-07-08T16:06:08.241Z"
     }
   ],
   "edit_counts": {
     "boards/shields/charybdis_right_dongle/charybdis_right_dongle.conf": 2,
-    "build.yaml": 52,
+    "build.yaml": 56,
     "boards/shields/charybdis_trackball/charybdis_pmw3610.dtsi": 2,
     "../../.claude/projects/-home-bgarciamoura-projects-zmk-charybdis/memory/charybdis_hardware_setup.md": 3,
     "boards/shields/charybdis_dongle/charybdis_dongle.overlay": 8,
     "../../../../mnt/c/Users/Public/dongle-capture.ps1": 1,
     "boards/shields/charybdis_dongle/charybdis_dongle.conf": 9,
     "local-build/build_setup.sh": 1,
-    "../../.claude/projects/-home-bgarciamoura-projects-zmk-charybdis/memory/MEMORY.md": 1
+    "../../.claude/projects/-home-bgarciamoura-projects-zmk-charybdis/memory/MEMORY.md": 1,
+    "config/keymaps/qwerty.keymap": 7
   },
-  "anatomy_hits": 6,
+  "anatomy_hits": 7,
   "anatomy_misses": 5,
   "repeated_reads_warned": 2,
   "cerebrum_warnings": 0,
-  "stop_count": 65
+  "stop_count": 75
 }
